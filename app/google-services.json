@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "719032321784",
+    "project_id": "difa-project-407209",
+    "storage_bucket": "difa-project-407209.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719032321784:android:0b9b155973b1ef264b5d0d",
+        "android_client_info": {
+          "package_name": "com.artforyou.difa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719032321784-84a2kcao10jejhoub92ii5o7j47ls1hl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.artforyou.difa",
+            "certificate_hash": "1e52ecbea1e41cb4aef8a1291b41cad37035baf3"
+          }
+        },
+        {
+          "client_id": "719032321784-4qsnjd45a73vfsqd1veu083p2iril7jk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh-fqgtqZR_SdFvBleSrQnUvw-c0RbiT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719032321784-4qsnjd45a73vfsqd1veu083p2iril7jk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
