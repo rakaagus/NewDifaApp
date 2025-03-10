@@ -10,19 +10,19 @@ sealed class OnboardingPage(
     @StringRes val description: Int
 ) {
     object First: OnboardingPage(
-        R.drawable.ic_launcher_background,
+        R.drawable.img_onboarding_1,
         R.string.onboard_page1_title,
         R.string.onboard_page1_desc
     )
 
     object Second: OnboardingPage(
-        R.drawable.ic_launcher_background,
+        R.drawable.img_onboarding_2,
         R.string.onboard_page2_title,
         R.string.onboard_page2_desc
     )
 
     object Third: OnboardingPage(
-        R.drawable.ic_launcher_background,
+        R.drawable.img_onboarding_3,
         R.string.onboard_page3_title,
         R.string.onboard_page3_desc
     )

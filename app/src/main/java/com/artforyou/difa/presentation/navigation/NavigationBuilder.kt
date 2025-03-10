@@ -31,14 +31,30 @@ fun NavigationBuilder(
         // navigation for splash screen
         navigation<SubGraph.Splash>(startDestination = Dest.SplashScreen){
             composable<Dest.SplashScreen>{
-                SplashScreen()
+                SplashScreen(
+                    moveToOnboarding = {
+                        navController.navigate(SubGraph.Onboarding){
+                            popUpTo(SubGraph.Splash){
+                                inclusive = true
+                            }
+                        }
+                    }
+                )
             }
         }
 
         // navigation for onboarding & get started
         navigation<SubGraph.Onboarding>(startDestination = Dest.OnboardingScreen){
             composable<Dest.OnboardingScreen> {
-                OnBoardingScreen()
+                OnBoardingScreen(
+                    moveToGetStarted = {
+                        navController.navigate(Dest.GetStartedScreen){
+                            popUpTo(Dest.OnboardingScreen){
+                                inclusive = true
+                            }
+                        }
+                    }
+                )
             }
             composable<Dest.GetStartedScreen> {
                 GetStartedScreen()

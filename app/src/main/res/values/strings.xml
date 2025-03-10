@@ -4,7 +4,7 @@
     <string name="onboard_page1_title">Mereka Sama Dengan Kita</string>
     <string name="onboard_page2_title">Bagaimana Caranya?</string>
     <string name="onboard_page3_title">Permudah Komunikasi</string>
-    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial agar kita bisa berkomunikasi dengan mereka</string>
-    <string name="onboard_page2_desc">Dengan bahasa isyarat kita bisa berkomunikasi dengan mereka, SIBI &amp; BISINDO</string>
-    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan tangan bahasa isyarat yang dirancang khusus untuk anak-anak agar mereka bisa berkomunkasi dengan mereka kaum difabel sebayanya</string>
+    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial \nagar kita bisa berkomunikasi dengan \nmereka</string>
+    <string name="onboard_page2_desc">Dengan bahasa isyarat kita bisa \nberkomunikasi dengan mereka, SIBI &amp; \nBISINDO</string>
+    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan \ntangan bahasa isyarat yang dirancang \nkhusus untuk anak-anak agar mereka bisa \nberkomunkasi dengan mereka kaum \ndifabel sebayanya</string>
 </resources>

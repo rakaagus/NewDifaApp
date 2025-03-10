@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -27,6 +28,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
+    moveToOnboarding: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var splash by remember {
@@ -39,12 +41,22 @@ fun SplashScreen(
         delay(1000)
     }
 
-    SplashScreenContent(splash)
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        containerColor = Color.White
+    ) { paddingValues ->
+        SplashScreenContent(
+            state = splash,
+            moveToOnboarding = moveToOnboarding,
+            modifier = modifier.padding(paddingValues)
+        )
+    }
 }
 
 @Composable
 fun SplashScreenContent(
     state: Boolean,
+    moveToOnboarding: () -> Unit,
     modifier: Modifier = Modifier
 ){
     Box(
@@ -77,5 +89,7 @@ fun SplashScreenContent(
 @Preview(showSystemUi = true)
 @Composable
 fun SplashScreenPrev() {
-    SplashScreen()
+    SplashScreen(
+        moveToOnboarding = {}
+    )
 }
