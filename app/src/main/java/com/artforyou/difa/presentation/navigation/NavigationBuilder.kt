@@ -57,7 +57,7 @@ fun NavigationBuilder(
                 )
             }
             composable<Dest.GetStartedScreen> {
-                GetStartedScreen()
+
             }
         }
 
