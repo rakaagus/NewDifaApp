@@ -1,34 +1,64 @@
 package com.artforyou.difa.ui.theme
 
+
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.artforyou.difa.R
 
-// Set of Material typography styles to start with
+val Poppins = FontFamily(
+    Font(R.font.poppins_bold, FontWeight.Bold),
+    Font(R.font.poppins_regular, FontWeight.Normal),
+    Font(R.font.poppins_medium, FontWeight.Medium),
+)
+
 val Typography = Typography(
+    headlineLarge = TextStyle(
+        fontSize = 36.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = Poppins
+    ),
+    headlineMedium = TextStyle(
+        fontSize = 32.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = Poppins
+    ),
+    headlineSmall = TextStyle(
+        fontSize = 28.sp,
+        fontWeight = FontWeight.Medium,
+        fontFamily = Poppins
+    ),
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontSize = 26.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = Poppins
+    ),
+    bodyMedium = TextStyle(
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Medium,
+        fontFamily = Poppins
+    ),
+    bodySmall = TextStyle(
+        fontSize = 20.sp,
         fontWeight = FontWeight.Normal,
+        fontFamily = Poppins
+    ),
+    labelLarge = TextStyle(
         fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontWeight = FontWeight.Bold,
+        fontFamily = Poppins
+    ),
+    labelMedium = TextStyle(
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Medium,
+        fontFamily = Poppins
     ),
     labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
-    */
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal,
+        fontFamily = Poppins
+    ),
 )
