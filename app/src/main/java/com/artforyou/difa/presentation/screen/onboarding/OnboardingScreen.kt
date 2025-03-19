@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.artforyou.difa.R
 import com.artforyou.difa.presentation.screen.onboarding.component.OnBoardingTextButton
 import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
@@ -111,7 +112,7 @@ fun PagerScreen(
     ) {
         Image(
             painter = painterResource(id = onboardingPage.image),
-            contentDescription = "Image Onboarding",
+            contentDescription = stringResource(R.string.img_onboarding),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(350.dp)
@@ -124,7 +125,9 @@ fun PagerScreen(
             ),
             color = Color.Black,
             textAlign = TextAlign.Start,
-            modifier = Modifier.fillMaxWidth().padding(start = 25.dp, end = 35.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 25.dp, end = 35.dp)
         )
         Spacer(modifier = Modifier.height(24.dp))
         Text(
@@ -134,7 +137,9 @@ fun PagerScreen(
             ),
             color = Color.Black,
             textAlign = TextAlign.Start,
-            modifier = Modifier.fillMaxWidth().padding(start = 25.dp, end = 35.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 25.dp, end = 35.dp)
         )
     }
 }

@@ -1,11 +1,21 @@
 <resources>
     <string name="app_name">Difa App</string>
 
+    <string name="app_version">V2.0</string>
     <string name="onboard_page1_title">Mereka Sama Dengan Kita</string>
     <string name="onboard_page2_title">Bagaimana Caranya?</string>
     <string name="onboard_page3_title">Permudah Komunikasi</string>
-    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial \nagar kita bisa berkomunikasi dengan \nmereka</string>
+    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial agar kita bisa berkomunikasi dengan mereka</string>
     <string name="onboard_page2_desc">Dengan bahasa isyarat kita bisa \nberkomunikasi dengan mereka, SIBI &amp; \nBISINDO</string>
-    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan \ntangan bahasa isyarat yang dirancang \nkhusus untuk anak-anak agar mereka bisa \nberkomunkasi dengan mereka kaum \ndifabel sebayanya</string>
+    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan tangan bahasa isyarat yang dirancang khusus untuk anak-anak agar mereka bisa berkomunkasi dengan mereka kaum difabel sebayanya</string>
     <string name="get_started_title">Mulai Berkomunikasi Teman \nDifamu</string>
+
+    <!--Description Values For Images-->
+    <string name="back_button_icon_description">Back Button</string>
+    <string name="logo_description">Logo</string>
+    <string name="img_onboarding">Image Onboarding</string>
+    <string name="img_get_started">Image Get Started</string>
+
+    <!--Page Title-->
+    <string name="get_started">Get Started</string>
 </resources>
