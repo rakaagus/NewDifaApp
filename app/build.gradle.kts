@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.artforyou.difa"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.artforyou.difa"
