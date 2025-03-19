@@ -99,18 +99,18 @@ fun NavigationBuilder(
             }
         }
 
-//        // navigation for recommendation
-//        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
-//            composable<Dest.RecommendationScreen> {
-//                RecommendationScreen()
-//            }
-//        }
-//
-//        // navigation for article
-//        navigation<SubGraph.Article>(startDestination = Dest.RecommendationScreen) {
-//            composable<Dest.ArticleScreen> {
-//                ArticleScreen()
-//            }
-//        }
+        // navigation for recommendation
+        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
+            composable<Dest.RecommendationScreen> {
+                RecommendationScreen()
+            }
+        }
+
+        // navigation for article
+        navigation<SubGraph.Article>(startDestination = Dest.ArticleScreen) {
+            composable<Dest.ArticleScreen> {
+                ArticleScreen()
+            }
+        }
     }
 }
