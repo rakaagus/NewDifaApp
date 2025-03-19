@@ -26,7 +26,7 @@ fun NavigationBuilder(
 ) {
     NavHost(
         navController = navController,
-        startDestination = SubGraph.Home
+        startDestination = SubGraph.Splash
     ) {
         // navigation for splash screen
         navigation<SubGraph.Splash>(startDestination = Dest.SplashScreen){
@@ -57,7 +57,9 @@ fun NavigationBuilder(
                 )
             }
             composable<Dest.GetStartedScreen> {
-
+                GetStartedScreen(
+                    moveToHome = {}
+                )
             }
         }
 
@@ -97,18 +99,18 @@ fun NavigationBuilder(
             }
         }
 
-        // navigation for recommendation
-        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
-            composable<Dest.RecommendationScreen> {
-                RecommendationScreen()
-            }
-        }
-
-        // navigation for article
-        navigation<SubGraph.Article>(startDestination = Dest.RecommendationScreen) {
-            composable<Dest.ArticleScreen> {
-                ArticleScreen()
-            }
-        }
+//        // navigation for recommendation
+//        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
+//            composable<Dest.RecommendationScreen> {
+//                RecommendationScreen()
+//            }
+//        }
+//
+//        // navigation for article
+//        navigation<SubGraph.Article>(startDestination = Dest.RecommendationScreen) {
+//            composable<Dest.ArticleScreen> {
+//                ArticleScreen()
+//            }
+//        }
     }
 }

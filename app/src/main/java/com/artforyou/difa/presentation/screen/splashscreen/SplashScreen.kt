@@ -39,6 +39,7 @@ fun SplashScreen(
         delay(500)
         splash = true
         delay(1000)
+        moveToOnboarding()
     }
 
     Scaffold(
@@ -47,7 +48,6 @@ fun SplashScreen(
     ) { paddingValues ->
         SplashScreenContent(
             state = splash,
-            moveToOnboarding = moveToOnboarding,
             modifier = modifier.padding(paddingValues)
         )
     }
@@ -56,7 +56,6 @@ fun SplashScreen(
 @Composable
 fun SplashScreenContent(
     state: Boolean,
-    moveToOnboarding: () -> Unit,
     modifier: Modifier = Modifier
 ){
     Box(
@@ -72,14 +71,16 @@ fun SplashScreenContent(
                 .align(Alignment.Center)
         )
 
-        AnimatedVisibility(state) {
+        AnimatedVisibility(
+            state,
+            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 24.dp)
+        ) {
             Text(
                 text = "V2.0",
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
                     .padding(bottom = 24.dp)
             )
         }
