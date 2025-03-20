@@ -26,7 +26,7 @@ fun NavigationBuilder(
 ) {
     NavHost(
         navController = navController,
-        startDestination = SubGraph.Splash
+        startDestination = SubGraph.SibiDetection
     ) {
         // navigation for splash screen
         navigation<SubGraph.Splash>(startDestination = Dest.SplashScreen){
@@ -58,7 +58,13 @@ fun NavigationBuilder(
             }
             composable<Dest.GetStartedScreen> {
                 GetStartedScreen(
-                    moveToHome = {}
+                    moveToHome = {
+                        navController.navigate(SubGraph.SibiDetection){
+                            popUpTo(SubGraph.Onboarding){
+                                inclusive = true
+                            }
+                        }
+                    }
                 )
             }
         }
