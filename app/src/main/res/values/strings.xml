@@ -1,11 +1,31 @@
 <resources>
     <string name="app_name">Difa App</string>
 
+    <string name="app_version">V2.0</string>
     <string name="onboard_page1_title">Mereka Sama Dengan Kita</string>
     <string name="onboard_page2_title">Bagaimana Caranya?</string>
     <string name="onboard_page3_title">Permudah Komunikasi</string>
-    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial \nagar kita bisa berkomunikasi dengan \nmereka</string>
+    <string name="onboard_page1_desc">Hanya saja mereka perlu perlakuan spesial agar kita bisa berkomunikasi dengan mereka</string>
     <string name="onboard_page2_desc">Dengan bahasa isyarat kita bisa \nberkomunikasi dengan mereka, SIBI &amp; \nBISINDO</string>
-    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan \ntangan bahasa isyarat yang dirancang \nkhusus untuk anak-anak agar mereka bisa \nberkomunkasi dengan mereka kaum \ndifabel sebayanya</string>
+    <string name="onboard_page3_desc">Difa hadir sebagai aplikasi deteksi gerakan tangan bahasa isyarat yang dirancang khusus untuk anak-anak agar mereka bisa berkomunkasi dengan mereka kaum difabel sebayanya</string>
     <string name="get_started_title">Mulai Berkomunikasi Teman \nDifamu</string>
+    <string name="title_about_1">Apa Itu Difa?</string>
+    <string name="title_about_2">Bagaimana Cara Kerja Difa?</string>
+    <string name="title_about_3">Bagaimana Cara Menggunakan Aplikasi?</string>
+    <string name="title_about_4">Bagaimana Cara Kontak Kami?</string>
+    <string name="description_about_1">Aplikasi DIFA adalah solusi inovatif yang memanfaatkan teknologi kecerdasan buatan (AI) dan pengenalan gambar untuk mengenali serta menerjemahkan Bahasa Isyarat (SIBI). Didesain khusus untuk mereka yang memiliki keterbatasan dalam berbicara, khususnya anak-anak yang ingin berkomunikasi dengan teman mereka yang difabel, aplikasi ini bertujuan memberikan akses lebih luas terhadap komunikasi yang efektif.selain itu juga terdapat qoute dan juga rekomendasi channel youtube untuk belajar bahasa isyarat</string>
+    <string name="description_about_2">1. Pada saat pengguna Difa masuk kedalam aplikasi, sistem akan meminta informasi akun yang harus di isi, untuk pendataan user aktif</string>
+    <string name="description_about_3">1. Pada saat pengguna Difa masuk kedalam aplikasi, sistem akan meminta informasi akun yang harus di isi, untuk pendataan user aktif</string>
+    <string name="description_about_4">1. Pada saat pengguna Difa masuk kedalam aplikasi, sistem akan meminta informasi akun yang harus di isi, untuk pendataan user aktif</string>
+
+    <!--Description Values For Images-->
+    <string name="back_button_icon_description">Back Button</string>
+    <string name="logo_description">Logo</string>
+    <string name="img_onboarding">Image Onboarding</string>
+    <string name="img_get_started">Image Get Started</string>
+
+    <!--Page Title-->
+    <string name="get_started">Get Started</string>
+    <string name="text_detection">Sibi Detection</string>
+    <string name="text_about">Tentang Aplikasi</string>
 </resources>

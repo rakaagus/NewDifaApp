@@ -50,7 +50,7 @@ fun GetStartedContent(
     Box (modifier = modifier.fillMaxSize()){
         Image(
             painter = painterResource(R.drawable.img_getstarted),
-            contentDescription = "Logo",
+            contentDescription = stringResource(R.string.img_get_started),
             modifier = Modifier
                 .size(350.dp)
                 .align(Alignment.Center)
@@ -69,7 +69,7 @@ fun GetStartedContent(
                 modifier = Modifier.fillMaxWidth().padding(start = 25.dp, end = 35.dp)
             )
             Spacer(Modifier.height(20.dp))
-            OnBoardingTextButton(title = "Get Started", moveTo = moveToHome)
+            OnBoardingTextButton(title = stringResource(R.string.get_started), moveTo = moveToHome)
         }
     }
 }

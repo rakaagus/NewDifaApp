@@ -58,7 +58,13 @@ fun NavigationBuilder(
             }
             composable<Dest.GetStartedScreen> {
                 GetStartedScreen(
-                    moveToHome = {}
+                    moveToHome = {
+                        navController.navigate(SubGraph.SibiDetection){
+                            popUpTo(SubGraph.Onboarding){
+                                inclusive = true
+                            }
+                        }
+                    }
                 )
             }
         }
@@ -80,7 +86,11 @@ fun NavigationBuilder(
         // navigation for about & Policy Screen
         navigation<SubGraph.About>(startDestination = Dest.AboutScreen) {
             composable<Dest.AboutScreen> {
-                AboutScreen()
+                AboutScreen(
+                    onBackPressed = {
+                        navController.navigateUp()
+                    }
+                )
             }
 
             composable<Dest.PolicyScreen> {
@@ -99,18 +109,19 @@ fun NavigationBuilder(
             }
         }
 
-//        // navigation for recommendation
-//        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
-//            composable<Dest.RecommendationScreen> {
-//                RecommendationScreen()
-//            }
-//        }
-//
-//        // navigation for article
-//        navigation<SubGraph.Article>(startDestination = Dest.RecommendationScreen) {
-//            composable<Dest.ArticleScreen> {
-//                ArticleScreen()
-//            }
-//        }
+
+        // navigation for recommendation
+        navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
+            composable<Dest.RecommendationScreen> {
+                RecommendationScreen()
+            }
+        }
+
+        // navigation for article
+        navigation<SubGraph.Article>(startDestination = Dest.ArticleScreen) {
+            composable<Dest.ArticleScreen> {
+                ArticleScreen()
+            }
+        }
     }
 }
