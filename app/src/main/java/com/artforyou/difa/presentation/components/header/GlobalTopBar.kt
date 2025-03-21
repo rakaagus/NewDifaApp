@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
 import com.artforyou.difa.ui.theme.activeTextBlue
@@ -24,9 +25,10 @@ import com.artforyou.difa.ui.theme.blueLight
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GlobalTopBar(
+    modifier: Modifier = Modifier,
     pageTitle: String,
     onBackPressed: () -> Unit,
-    modifier: Modifier = Modifier
+    actionIcon: (@Composable () -> Unit)? = null,
 ) {
     CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White),
@@ -44,7 +46,9 @@ fun GlobalTopBar(
                 onClick = onBackPressed,
                 colors = IconButtonDefaults.iconButtonColors(containerColor = blueLight),
                 enabled = true,
-                modifier = Modifier.padding(start = 16.dp).size(30.dp)
+                modifier = Modifier
+                    .padding(start = 16.dp)
+                    .size(30.dp)
             ) {
                 Icon(
                     painter = painterResource(R.drawable.baseline_arrow_left_24),
@@ -54,6 +58,19 @@ fun GlobalTopBar(
                 )
             }
         },
+        actions = {
+            actionIcon?.let { it() }
+        },
         modifier = modifier
+    )
+}
+
+@Preview
+@Composable
+private fun GlobalTopBar() {
+    GlobalTopBar(
+        pageTitle = "Home",
+        onBackPressed = {},
+        actionIcon = {}
     )
 }

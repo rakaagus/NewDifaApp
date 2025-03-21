@@ -86,7 +86,11 @@ fun NavigationBuilder(
         // navigation for about & Policy Screen
         navigation<SubGraph.About>(startDestination = Dest.AboutScreen) {
             composable<Dest.AboutScreen> {
-                AboutScreen()
+                AboutScreen(
+                    onBackPressed = {
+                        navController.navigateUp()
+                    }
+                )
             }
 
             composable<Dest.PolicyScreen> {
