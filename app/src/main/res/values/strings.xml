@@ -29,6 +29,10 @@
     <string name="text_point_3_desc">Informasi pribadi anda hanya akan disimpan selama diperlukan untuk memenuhi tujuan dari pengumpulannya, atau selama penyimpanan tersebut diperlukan atau diperbolehkan oleh peraturan perundang-undangan yang berlaku.</string>
     <string name="text_point_4_desc">Kami mengubah kebijakan privasi ini atas kebijakan kami sendiri dari waktu ke waktu, untuk memastikan bahwa kebijakan privasi ini konsisten dengan perkembangan kami di masa depan, dan/atau perubahan aturan hukum. Jika terjadi perubahan, kami akan memberitahukan perubahan tersebut melalui pemberitahuan umum yang dipublikasikan pada aplikasi, atau ke alamat e-mail yang tercantum pada akun anda. Anda setuju bertanggung jawab dalam meninjau kebijakan privasi ini secara teratur untuk informasi terbaru mengenai pengolahan data dan praktik perlindungan data kami dengan anda menggunakan aplikasi kami setelah adanya perubahan apapun terhadap kebijakan privasi ini dan segala perubahannya.</string>
     <string name="text_point_5_desc">Jika anda memiliki pertanyaan, keluhan, atau saran mengenai kebijakan privasi atau praktik privasi jelajahin, ingin menghubungi pihak perlindungan data kami, anda dapat menghubungi kami di Difa@gmail.com</string>
+    <string name="text_error_title_default">Wah Ada Sedikit Masalah Nih</string>
+    <string name="text_error_desc_default">Sabar Dulu ya teman difa, sepertinya \nada gangguan internet!</string>
+    <string name="text_try_again">Ulangi</string>
+    <string name="text_cancle">Batal</string>
 
     <!--Description Values For Images-->
     <string name="back_button_icon_description">Back Button</string>
