@@ -94,7 +94,11 @@ fun NavigationBuilder(
             }
 
             composable<Dest.PolicyScreen> {
-                PolicyScreen()
+                PolicyScreen(
+                    onBackPressed = {
+                        navController.navigateUp()
+                    }
+                )
             }
         }
 
@@ -108,7 +112,6 @@ fun NavigationBuilder(
                 ReportScreen()
             }
         }
-
 
         // navigation for recommendation
         navigation<SubGraph.Recommendation>(startDestination = Dest.RecommendationScreen) {
