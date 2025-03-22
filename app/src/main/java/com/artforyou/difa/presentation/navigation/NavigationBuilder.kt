@@ -26,7 +26,7 @@ fun NavigationBuilder(
 ) {
     NavHost(
         navController = navController,
-        startDestination = SubGraph.SibiDetection
+        startDestination = SubGraph.Splash
     ) {
         // navigation for splash screen
         navigation<SubGraph.Splash>(startDestination = Dest.SplashScreen){
