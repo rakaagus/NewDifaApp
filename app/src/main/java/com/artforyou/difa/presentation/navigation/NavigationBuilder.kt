@@ -94,7 +94,11 @@ fun NavigationBuilder(
             }
 
             composable<Dest.PolicyScreen> {
-                PolicyScreen()
+                PolicyScreen(
+                    onBackPressed = {
+                        navController.navigateUp()
+                    }
+                )
             }
         }
 
