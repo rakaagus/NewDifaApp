@@ -39,6 +39,8 @@
     <string name="logo_description">Logo</string>
     <string name="img_onboarding">Image Onboarding</string>
     <string name="img_get_started">Image Get Started</string>
+    <string name="img_close_button">Close Button</string>
+    <string name="img_pop_error">Illustration Error pop Up</string>
 
     <!--Page Title-->
     <string name="get_started">Get Started</string>
