@@ -23,7 +23,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
-import com.artforyou.difa.presentation.navigation.Dest
 import com.artforyou.difa.presentation.screen.onboarding.component.OnBoardingTextButton
 
 @Composable
