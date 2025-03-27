@@ -123,7 +123,11 @@ fun NavigationBuilder(
         // navigation for article
         navigation<SubGraph.Article>(startDestination = Dest.ArticleScreen) {
             composable<Dest.ArticleScreen> {
-                ArticleScreen()
+                ArticleScreen(
+                    onBackPressed = {
+                        navController.navigateUp()
+                    }
+                )
             }
         }
     }
