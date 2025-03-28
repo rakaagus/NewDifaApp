@@ -33,6 +33,11 @@
     <string name="text_error_desc_default">Sabar Dulu ya teman difa, sepertinya \nada gangguan internet!</string>
     <string name="text_try_again">Ulangi</string>
     <string name="text_cancle">Batal</string>
+    <string name="text_quotes">Quotes</string>
+    <string name="text_beranda">Beranda</string>
+    <string name="text_learn_difa">Pelajari Aplikasi</string>
+    <string name="text_desc_learn_difa">Ada Apa Saja sih di aplikasi ini?</string>
+    <string name="text_loadMore">Lihat Semua</string>
 
     <!--Description Values For Images-->
     <string name="back_button_icon_description">Back Button</string>
@@ -49,4 +54,6 @@
     <string name="text_about">Tentang Aplikasi</string>
     <string name="text_policy">Kebijakan Kami</string>
     <string name="text_article">Artikel</string>
+    <string name="text_home">Home</string>
+    <string name="text_recom_sibi">Recomendasi Belajar Sibi</string>
 </resources>

@@ -3,6 +3,5 @@ package com.artforyou.difa.presentation.screen.help.viewmodel
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 
-@HiltViewModel
 class HelpViewModel: ViewModel() {
 }
