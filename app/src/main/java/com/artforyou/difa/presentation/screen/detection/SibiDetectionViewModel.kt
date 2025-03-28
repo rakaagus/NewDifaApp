@@ -1,8 +1,8 @@
-package com.artforyou.difa.presentation.screen.article
+package com.artforyou.difa.presentation.screen.detection
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltViewModel
-class ArticleViewModel: ViewModel() {
+class SibiDetectionViewModel: ViewModel() {
 }
