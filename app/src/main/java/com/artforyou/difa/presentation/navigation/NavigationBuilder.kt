@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.artforyou.difa.presentation.screen.Home.HomeScreen
+import com.artforyou.difa.presentation.screen.home.HomeScreen
 import com.artforyou.difa.presentation.screen.about.AboutScreen
 import com.artforyou.difa.presentation.screen.about.PolicyScreen
 import com.artforyou.difa.presentation.screen.article.ArticleScreen
