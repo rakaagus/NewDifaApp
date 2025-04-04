@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -23,6 +25,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val baseUrl: String = gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
+        buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
     }
 
     buildTypes {
@@ -124,6 +129,11 @@ dependencies {
     implementation(libs.io.coil.kt)
     implementation(libs.io.coil.gif.kt)
     implementation(libs.accompanist.coil)
+
+    /*Tensor Flow Lite*/
+    implementation(libs.tensorflow.lite.gpu)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
