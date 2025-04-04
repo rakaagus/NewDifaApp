@@ -57,6 +57,10 @@ runtimeLivedata = "1.6.7"
 cameraXVersion = "1.4.0-beta01"
 lifecycleRuntimeComposeAndroidVersion = "2.8.2"
 
+# TensorFlow Lite
+tensorFlowLiteGPU = "2.9.0"
+tensorFlowLiteSupp = "0.1.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -133,6 +137,11 @@ androidx-camera2 = { module = "androidx.camera:camera-camera2", version.ref ="ca
 androidx-camera2-livecyle = { module = "androidx.camera:camera-lifecycle", version.ref ="cameraXVersion"}
 androidx-camera2-view = { module = "androidx.camera:camera-view", version.ref ="cameraXVersion"}
 androidx-lifecycle-runtime-compose-android = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose-android", version.ref = "lifecycleRuntimeComposeAndroidVersion" }
+
+# TensorFlow Lite
+tensorflow-lite-gpu = { module = "org.tensorflow:tensorflow-lite-gpu", version.ref = "tensorFlowLiteGPU"}
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorFlowLiteSupp"}
+tensorflow-lite-metadata = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorFlowLiteSupp"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
