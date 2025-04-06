@@ -32,7 +32,7 @@ import java.util.concurrent.Executors
 @Composable
 fun CameraDetection(
     modifier: Modifier = Modifier,
-    cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA,
+    cameraSelector: CameraSelector,
     scaleType: PreviewView.ScaleType = PreviewView.ScaleType.FILL_CENTER,
     onRecognition: (Recognition) -> Unit,
     onCameraReady: (Camera) -> Unit
@@ -65,7 +65,7 @@ fun CameraDetection(
         }
     }
 
-    LaunchedEffect(previewUseCase) {
+    LaunchedEffect(previewUseCase, cameraSelector) {
         if (permissionState.status.isGranted) {
             val cameraProvider = context.getCameraProvider()
             try {

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Camera
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.rounded.FlashOff
 import androidx.compose.material.icons.rounded.FlashOn
@@ -132,7 +133,7 @@ fun SibiDetectionContent(
                     .align(Alignment.Center)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Cameraswitch,
+                    imageVector = Icons.Default.Camera,
                     tint = blueLight,
                     contentDescription = "Change Camera",
                     modifier = Modifier
