@@ -1,5 +1,8 @@
 package com.artforyou.difa.presentation.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -26,7 +29,11 @@ fun NavigationBuilder(
 ) {
     NavHost(
         navController = navController,
-        startDestination = SubGraph.Splash
+        startDestination = SubGraph.Splash,
+        enterTransition = { fadeIn(animationSpec = tween(500)) },
+        exitTransition = { fadeOut(animationSpec = tween(500)) },
+        popEnterTransition = { fadeIn(animationSpec = tween(500)) },
+        popExitTransition = { fadeOut(animationSpec = tween(500)) }
     ) {
         // navigation for splash screen
         navigation<SubGraph.Splash>(startDestination = Dest.SplashScreen){

@@ -93,6 +93,7 @@ androidx-lifecyle-viewModel = {group = "androidx.lifecycle", name = "lifecycle-v
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref="accompanist_version"}
 accompanist-pager-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref="accompanist_version"}
 accompanist-flow-layout = {group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "flowLayoutVersion"}
+accompanist-navigation-animated = {module  = "com.google.accompanist:accompanist-navigation-animation", version.ref="accompanist_version"}
 
 # Statubar
 accompanist-system-ui = {group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref="systemUi"}

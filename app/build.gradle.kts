@@ -90,6 +90,9 @@ dependencies {
     implementation(libs.accompanist.pager.indicator)
     implementation(libs.accompanist.flow.layout)
 
+    /*Navigation Animated*/
+    implementation(libs.accompanist.navigation.animated)
+
     /*StatusBar*/
     implementation(libs.accompanist.system.ui)
 
