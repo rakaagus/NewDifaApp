@@ -1,4 +1,19 @@
 package com.artforyou.difa.utils
 
-object Constant {
-}
+const val KEY_ERROR = "error"
+const val KEY_MESSAGE = "message"
+const val KEY_DATA = "data"
+const val KEY_CREATE_AT = "createAt"
+const val KEY_ID = "id"
+const val KEY_TEXT_QUOTE = "text"
+const val KEY_SOURCE_QUOTE = "source"
+const val KEY_RESPONSE = "quotesResponse"
+const val KEY_LINK = "link"
+const val KEY_DESCRIPTION = "description"
+const val KEY_TITLE = "title"
+const val KEY_URL_IMAGE = "url_image"
+const val KEY_IMAGE = "image"
+const val KEY_AUTHOR = "author"
+const val KEY_PUBLISH_AT = "published_at"
+const val KEY_CONTENT = "content"
+const val KEY_URL = "url"
