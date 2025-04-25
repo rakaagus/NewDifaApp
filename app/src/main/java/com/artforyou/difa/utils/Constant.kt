@@ -1,5 +1,9 @@
 package com.artforyou.difa.utils
 
+const val KEY_ENTITY_ARTICLE = "article"
+const val KEY_ENTITY_QUOTE = "quote"
+const val KEY_ENTITY_RECOMMENDATION = "recommendation"
+
 const val KEY_ERROR = "error"
 const val KEY_MESSAGE = "message"
 const val KEY_DATA = "data"
