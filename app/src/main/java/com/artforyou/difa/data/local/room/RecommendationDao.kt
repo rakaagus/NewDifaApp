@@ -6,7 +6,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.artforyou.difa.data.local.entity.QuotesEntity
 import com.artforyou.difa.data.local.entity.RecommendationEntity
 import com.artforyou.difa.utils.KEY_CREATE_AT
 import com.artforyou.difa.utils.KEY_ENTITY_RECOMMENDATION

@@ -2,7 +2,9 @@ package com.artforyou.difa.domain.di
 
 
 import com.artforyou.difa.BuildConfig
-import com.artforyou.difa.data.remote.network.ApiService
+import com.artforyou.difa.data.remote.network.ArticleService
+import com.artforyou.difa.data.remote.network.QuoteService
+import com.artforyou.difa.data.remote.network.RecommendationService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,12 +29,26 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideApiService(client: OkHttpClient): ApiService{
-        val retrofit = Retrofit.Builder()
+    fun provideRetrofit(client: OkHttpClient): Retrofit {
+       return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-        return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    fun provideArticleService(retrofit: Retrofit): ArticleService {
+        return retrofit.create(ArticleService::class.java)
+    }
+
+    @Provides
+    fun provideQuotesService(retrofit: Retrofit): QuoteService {
+        return retrofit.create(QuoteService::class.java)
+    }
+
+    @Provides
+    fun provideRecommendationService(retrofit: Retrofit): RecommendationService {
+        return retrofit.create(RecommendationService::class.java)
     }
 }
