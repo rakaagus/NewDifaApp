@@ -17,15 +17,15 @@ interface ArticleDao {
     fun getAllArticle(): LiveData<List<ArticleEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticle(article: List<ArticleEntity>)
+    suspend fun insertArticle(article: List<ArticleEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateArticle(articleEntity: ArticleEntity)
+    suspend fun updateArticle(articleEntity: ArticleEntity)
 
     @Query("SELECT * FROM $KEY_ENTITY_ARTICLE WHERE id = :id ORDER BY $KEY_CREATE_AT ASC")
     fun getArticleById(id: Int): LiveData<ArticleEntity>
 
     @Delete
-    fun deleteArticle()
+    fun deleteArticle(article: ArticleEntity)
 
 }

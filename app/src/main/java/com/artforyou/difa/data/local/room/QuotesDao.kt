@@ -17,15 +17,15 @@ interface QuotesDao {
     fun getAllQuotes(): LiveData<List<QuotesEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertQuote(article: List<QuotesEntity>)
+    suspend fun insertQuote(article: List<QuotesEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateQuote(quotesEntity: QuotesEntity)
+    suspend fun updateQuote(quotesEntity: QuotesEntity)
 
     @Query("SELECT * FROM $KEY_ENTITY_QUOTE WHERE id = :id ORDER BY $KEY_CREATE_AT ASC")
     fun getQuoteById(id: Int): LiveData<QuotesEntity>
 
     @Delete
-    fun deleteArticle()
+    fun deleteArticle(quote: QuotesEntity)
 
 }

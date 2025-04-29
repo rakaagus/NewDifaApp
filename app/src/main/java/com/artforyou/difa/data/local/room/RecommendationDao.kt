@@ -15,18 +15,18 @@ import com.artforyou.difa.utils.KEY_ENTITY_RECOMMENDATION
 interface RecommendationDao {
 
     @Query("SELECT * FROM $KEY_ENTITY_RECOMMENDATION ORDER BY $KEY_CREATE_AT ASC")
-    fun getAllRecommendations(): LiveData<List<QuotesEntity>>
+    fun getAllRecommendations(): LiveData<List<RecommendationEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertRecommendations(recommendationEntity: List<RecommendationEntity>)
+    suspend fun insertRecommendations(recommendationEntity: List<RecommendationEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateRecommendation(recommendation: RecommendationEntity)
+    suspend fun updateRecommendation(recommendation: RecommendationEntity)
 
     @Query("SELECT * FROM $KEY_ENTITY_RECOMMENDATION WHERE id = :id ORDER BY $KEY_CREATE_AT ASC")
-    fun getQuoteById(id: Int): LiveData<QuotesEntity>
+    fun getQuoteById(id: Int): LiveData<RecommendationEntity>
 
     @Delete
-    fun deleteArticle()
+    fun deleteRecommendation(recommendation: RecommendationEntity)
 
 }
