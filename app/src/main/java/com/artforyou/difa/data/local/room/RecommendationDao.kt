@@ -23,7 +23,7 @@ interface RecommendationDao {
     suspend fun updateRecommendation(recommendation: RecommendationEntity)
 
     @Query("SELECT * FROM $KEY_ENTITY_RECOMMENDATION WHERE id = :id ORDER BY $KEY_CREATE_AT ASC")
-    fun getQuoteById(id: Int): Flow<RecommendationEntity>
+    fun getRecommendationById(id: Int): Flow<RecommendationEntity>
 
     @Delete
     fun deleteRecommendation(recommendation: RecommendationEntity)

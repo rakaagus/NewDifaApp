@@ -5,5 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class QuoteModel(
-    val int: Int
+    val int: Int,
+    val text: String,
+    val source: String,
+    val createAt: String
 ) : Parcelable

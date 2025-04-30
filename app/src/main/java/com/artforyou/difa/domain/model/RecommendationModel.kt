@@ -5,5 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RecommendationModel(
-    val int: Int
+    val int: Int,
+    val title: String,
+    val description: String,
+    val urlImage: String,
+    val link: String,
+    val createAt: String
 ): Parcelable
