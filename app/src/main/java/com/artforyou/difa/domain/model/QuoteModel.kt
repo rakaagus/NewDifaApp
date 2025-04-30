@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class QuoteModel(
-    val int: Int,
+    val id: Int,
     val text: String,
     val source: String,
     val createAt: String

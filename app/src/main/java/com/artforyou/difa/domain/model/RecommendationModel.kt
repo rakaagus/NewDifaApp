@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RecommendationModel(
-    val int: Int,
+    val id: Int,
     val title: String,
     val description: String,
     val urlImage: String,
