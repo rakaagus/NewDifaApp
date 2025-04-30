@@ -1,4 +1,4 @@
-package com.artforyou.difa.domain.usecase
+package com.artforyou.difa.domain.repository
 
 import com.artforyou.difa.data.Resource
 import com.artforyou.difa.data.local.entity.ArticleEntity
@@ -9,7 +9,7 @@ import com.artforyou.difa.domain.model.QuoteModel
 import com.artforyou.difa.domain.model.RecommendationModel
 import kotlinx.coroutines.flow.Flow
 
-interface AppUseCase {
+interface IAppRepository {
     /*Get List All Data*/
     fun getListArticle(): Flow<Resource<List<ArticleModel>>>
     fun getListQuotes(): Flow<Resource<List<QuoteModel>>>
