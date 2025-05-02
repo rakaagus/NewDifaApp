@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Camera
-import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.rounded.FlashOff
 import androidx.compose.material.icons.rounded.FlashOn
 import androidx.compose.material3.Icon
@@ -98,7 +97,7 @@ fun SibiDetectionContent(
 
             SimpleInformation(
                 title = "Presentasi Deteksi",
-                value = recognition.value?.confidence.toString(),
+                value = recognition.value?.probabilityString.toString(),
                 isOrientationEnd = true,
                 modifier = Modifier
                     .weight(1f)
@@ -114,7 +113,7 @@ fun SibiDetectionContent(
                 .clip(MaterialTheme.shapes.small),
             cameraSelector = cameraSelector,
             onRecognition = { result ->
-
+                viewModel.updateData(result)
             },
             onCameraReady = {
                 camera = it
