@@ -23,6 +23,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,8 +32,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.SetStatusBarColor
+import com.artforyou.difa.data.Resource
+import com.artforyou.difa.presentation.screen.home.component.EmptyQuotesPager
 import com.artforyou.difa.presentation.screen.home.component.HomeAppbar
 import com.artforyou.difa.presentation.screen.home.component.LeftImageCard
 import com.artforyou.difa.presentation.screen.home.component.QuotesPager
@@ -44,6 +48,7 @@ import com.artforyou.difa.ui.theme.GreenLight
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     SetStatusBarColor(color = GreenLight)
     Scaffold(
@@ -54,6 +59,7 @@ fun HomeScreen(
         }
     ) { paddingValues ->
         HomeScreenContent(
+            homeViewModel = homeViewModel,
             modifier = Modifier.padding(paddingValues)
         )
     }
@@ -61,8 +67,14 @@ fun HomeScreen(
 
 @Composable
 fun HomeScreenContent(
+    homeViewModel: HomeViewModel,
     modifier: Modifier = Modifier,
 ) {
+
+    val quotesState = homeViewModel.quotes.collectAsState()
+    val articleState = homeViewModel.articles.collectAsState()
+    val recommendationState = homeViewModel.recommendations.collectAsState()
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -88,7 +100,17 @@ fun HomeScreenContent(
                 color = Color.Black
             )
             Spacer(Modifier.height(10.dp))
-            QuotesPager()
+            when(val result = quotesState.value){
+                is Resource.Error -> {
+                    EmptyQuotesPager()
+                }
+                is Resource.Loading -> {
+
+                }
+                is Resource.Success -> {
+                    QuotesPager(quotes = result.data ?: emptyList())
+                }
+            }
             HomeSimpleTextFormat(
                 title = stringResource(R.string.text_beranda),
                 item = {

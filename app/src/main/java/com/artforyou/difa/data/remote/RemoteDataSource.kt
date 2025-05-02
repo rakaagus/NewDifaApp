@@ -21,7 +21,7 @@ class RemoteDataSource @Inject constructor(
     private val quoteService: QuoteService,
     private val recommendationService: RecommendationService
 ){
-    suspend fun getAllArticle(): Flow<ApiResponse<List<ArticleItemData>>> {
+    fun getAllArticle(): Flow<ApiResponse<List<ArticleItemData>>> {
         return flow {
             try {
                 val response = articleService.getListArticle()
@@ -43,26 +43,7 @@ class RemoteDataSource @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getArticleById(articleId: Int) : Flow<ApiResponse<ArticleItemData>> {
-        return flow {
-            try {
-                val response = articleService.getArticleById(articleId)
-                val error = response.error
-                val message = response.message
-                if(!error) {
-                    emit(ApiResponse.Success(response.data))
-                } else {
-                    emit(ApiResponse.Error(message))
-                    Log.e("RemoteDataSource", "getArticleById: $message")
-                }
-            }catch (e: Exception){
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", "getArticleById: ${e.toString()}")
-            }
-        }.flowOn(Dispatchers.IO)
-    }
-
-    suspend fun getAllQuotes(): Flow<ApiResponse<List<QuotesItemData>>> {
+    fun getAllQuotes(): Flow<ApiResponse<List<QuotesItemData>>> {
         return flow {
             try {
                 val response = quoteService.getListQuotes()
@@ -81,7 +62,7 @@ class RemoteDataSource @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getAllRecommendation(): Flow<ApiResponse<List<RecommendationItemData>>> {
+    fun getAllRecommendation(): Flow<ApiResponse<List<RecommendationItemData>>> {
         return flow {
             try {
                 val response = recommendationService.getListRecommendation()
@@ -99,25 +80,6 @@ class RemoteDataSource @Inject constructor(
             }catch (e: Exception){
                 emit(ApiResponse.Error(e.toString()))
                 Log.e("RemoteDataSource", "getAllRecommendation: ${e.toString()}")
-            }
-        }.flowOn(Dispatchers.IO)
-    }
-
-    suspend fun getRecommendation(recommendationId: Int) : Flow<ApiResponse<RecommendationItemData>> {
-        return flow {
-            try {
-                val response = recommendationService.getArticleById(recommendationId)
-                val error = response.error
-                val message =  response.message
-                if(!error) {
-                    emit(ApiResponse.Success(response.data))
-                } else {
-                    emit(ApiResponse.Error(message))
-                    Log.e("RemoteDataSource", "getRecommendation: $message")
-                }
-            }catch (e: Exception){
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", "getRecommendation: ${e.toString()}")
             }
         }.flowOn(Dispatchers.IO)
     }
