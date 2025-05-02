@@ -33,6 +33,16 @@ object RecommendationMapper {
             )
         }
 
+    fun recommendationEntitiesToModelMapper(input: RecommendationEntity): RecommendationModel =
+        RecommendationModel(
+            id = input.id,
+            title = input.title,
+            description = input.description,
+            urlImage = input.urlImage,
+            link = input.link,
+            createAt = input.createAt
+        )
+
     fun recommendationModelToEntitiesMapper(input: RecommendationModel) = RecommendationEntity(
         id = input.id,
         title = input.title,

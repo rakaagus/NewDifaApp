@@ -17,9 +17,20 @@ constructor(
     private val quoteDao: QuotesDao,
     private val recommendationDao: RecommendationDao
 ) {
+    // Article
     fun getAllArticleCacheData(): Flow<List<ArticleEntity>> = articleDao.getAllArticle()
+    suspend fun insertDataArticle(list: List<ArticleEntity>) = articleDao.insertArticle(list)
     fun getDetailArticleCacheData(articleId: Int) : Flow<ArticleEntity> = articleDao.getArticleById(articleId)
+    fun getDeleteArticle(articleEntity: ArticleEntity) = articleDao.deleteArticle(articleEntity)
+
+    // Quotes
     fun getAllQuotesCacheData(): Flow<List<QuotesEntity>> = quoteDao.getAllQuotes()
+    suspend fun insertQuotes(list: List<QuotesEntity>) = quoteDao.insertQuote(list)
+    fun getDeleteQuote(quotesEntity: QuotesEntity) = quoteDao.deleteQuote(quotesEntity)
+
+    // Recommendation
     fun getAllRecommendationCacheData(): Flow<List<RecommendationEntity>> = recommendationDao.getAllRecommendations()
+    suspend fun insertRecommendation(list: List<RecommendationEntity>) = recommendationDao.insertRecommendations(list)
     fun getDetailRecommendationCacheData(recommendationId: Int) : Flow<RecommendationEntity> = recommendationDao.getRecommendationById(recommendationId)
+    fun getDeleteRecommendation(recommendationEntity: RecommendationEntity) = recommendationDao.deleteRecommendation(recommendationEntity)
 }

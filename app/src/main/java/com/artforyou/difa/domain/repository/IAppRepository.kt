@@ -15,11 +15,6 @@ interface IAppRepository {
     fun getListQuotes(): Flow<Resource<List<QuoteModel>>>
     fun getListRecommendation(): Flow<Resource<List<RecommendationModel>>>
 
-    /*Create Data*/
-    fun insertDataArticle(articles: List<ArticleEntity>)
-    fun insertDataQuote(quotes: List<QuotesEntity>)
-    fun insertDataRecommendation(recommendations: List<RecommendationEntity>)
-
     /*Get One Data*/
     fun getArticleById(articleId: Int): Flow<ArticleModel>
     fun getRecommendationById(recommendationId: Int): Flow<RecommendationModel>

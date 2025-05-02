@@ -26,6 +26,6 @@ interface QuotesDao {
     fun getQuoteById(id: Int): Flow<QuotesEntity>
 
     @Delete
-    fun deleteArticle(quote: QuotesEntity)
+    fun deleteQuote(quote: QuotesEntity)
 
 }

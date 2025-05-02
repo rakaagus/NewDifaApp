@@ -41,6 +41,20 @@ object ArticleMapper {
             )
         }
 
+    fun recommendationEntitiesToModelMapper(input: ArticleEntity): ArticleModel =
+        ArticleModel(
+            id = input.id,
+            title = input.title,
+            description = input.description,
+            content = input.content,
+            author = input.author,
+            url = input.url,
+            urlImage = input.urlImage,
+            image = input.image,
+            publishAt = input.publishAt,
+            createAt = input.createAt
+        )
+
     fun articleModelToEntitiesMapper(input: ArticleModel) = ArticleEntity(
         id = input.id,
         title = input.title,
