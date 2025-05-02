@@ -23,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 import com.artforyou.difa.presentation.screen.detection.component.CameraDetection
@@ -43,7 +45,8 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
 @Composable
 fun SibiDetectionScreen(
-    onBackPress: () -> Unit = {}
+    onBackPress: () -> Unit = {},
+    viewModel: SibiDetectionViewModel = viewModel()
 ){
     Scaffold(
         containerColor = Color.White,
@@ -56,6 +59,7 @@ fun SibiDetectionScreen(
         modifier = Modifier.fillMaxSize()
     ) { paddingValues ->
         SibiDetectionContent(
+            viewModel = viewModel,
             modifier = Modifier.padding(paddingValues)
         )
     }
@@ -64,12 +68,15 @@ fun SibiDetectionScreen(
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun SibiDetectionContent(
+    viewModel: SibiDetectionViewModel,
     modifier: Modifier = Modifier,
 ) {
 
     var camera by remember { mutableStateOf<Camera?>(null) }
     var flashOn by remember { mutableStateOf(false) }
     var cameraSelector by remember { mutableStateOf(CameraSelector.DEFAULT_BACK_CAMERA) }
+
+    val recognition = viewModel.recognitionList.observeAsState()
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -84,14 +91,14 @@ fun SibiDetectionContent(
         ) {
             SimpleInformation(
                 title = "Huruf Sibi",
-                value = "Sibi",
+                value = recognition.value?.label ?: "-",
                 modifier = Modifier
                     .weight(1f)
             )
 
             SimpleInformation(
                 title = "Presentasi Deteksi",
-                value = "90%",
+                value = recognition.value?.confidence.toString(),
                 isOrientationEnd = true,
                 modifier = Modifier
                     .weight(1f)

@@ -9,7 +9,7 @@ import com.artforyou.difa.data.local.entity.RecommendationEntity
 @Database(
     entities = [ArticleEntity::class, RecommendationEntity::class, QuotesEntity::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
