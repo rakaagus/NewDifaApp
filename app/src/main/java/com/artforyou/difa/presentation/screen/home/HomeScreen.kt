@@ -140,12 +140,30 @@ fun HomeScreenContent(
                         verticalArrangement = Arrangement.spacedBy(12.dp),
                         modifier = Modifier.height(300.dp)
                     ) {
-                        items(3) {
-                            RecommendationSibiCard(
-                                title = "Recomendation Sibi",
-                                description = "Description Sibi",
-                                image = R.drawable.ic_launcher_background
-                            ){}
+                        when(val result = recommendationState.value){
+                            is Resource.Error -> {
+                                items(1) {
+                                    RecommendationSibiCard(
+                                        title = "Recomendation Sibi",
+                                        description = "Description Sibi",
+                                        image = R.drawable.ic_launcher_background
+                                    ){}
+                                }
+                            }
+                            is Resource.Loading -> {
+
+                            }
+                            is Resource.Success -> {
+                                result.data?.size?.let {
+                                    items(it) {
+                                        RecommendationSibiCard(
+                                            title = result.data[it].title,
+                                            description = result.data[it].description,
+                                            image = R.drawable.ic_launcher_background
+                                        ){}
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -162,12 +180,30 @@ fun HomeScreenContent(
                         verticalArrangement = Arrangement.spacedBy(15.dp),
                         modifier = Modifier.height(600.dp)
                     ) {
-                        items(4) {
-                            VerticalArticleCard(
-                                title = "Article 1",
-                                description = "Descripsi Article",
-                                image = R.drawable.ic_launcher_background
-                            ) { }
+                        when(val result = articleState.value){
+                            is Resource.Error -> {
+                                items(4) {
+                                    VerticalArticleCard(
+                                        title = "Article 1",
+                                        description = "Descripsi Article",
+                                        image = R.drawable.ic_launcher_background
+                                    ) { }
+                                }
+                            }
+                            is Resource.Loading -> {
+
+                            }
+                            is Resource.Success -> {
+                                result.data?.size?.let {
+                                    items(it) {
+                                        VerticalArticleCard(
+                                            title = result.data[it].title,
+                                            description = result.data[it].description,
+                                            image = R.drawable.ic_launcher_background
+                                        ) { }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
