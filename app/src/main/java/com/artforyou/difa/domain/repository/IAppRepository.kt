@@ -1,9 +1,6 @@
 package com.artforyou.difa.domain.repository
 
 import com.artforyou.difa.data.Resource
-import com.artforyou.difa.data.local.entity.ArticleEntity
-import com.artforyou.difa.data.local.entity.QuotesEntity
-import com.artforyou.difa.data.local.entity.RecommendationEntity
 import com.artforyou.difa.domain.model.ArticleModel
 import com.artforyou.difa.domain.model.QuoteModel
 import com.artforyou.difa.domain.model.RecommendationModel
@@ -23,4 +20,7 @@ interface IAppRepository {
     fun deleteDataArticle(articleModel: ArticleModel)
     fun deleteDataQuote(quoteModel: QuoteModel)
     fun deleteDataRecommendation(recommendationModel: RecommendationModel)
+
+    suspend fun setUpUser(boolean: Boolean)
+    suspend fun isFirstInstall(): Boolean
 }

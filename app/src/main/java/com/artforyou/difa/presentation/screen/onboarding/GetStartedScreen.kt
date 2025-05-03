@@ -35,13 +35,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.presentation.screen.onboarding.component.OnBoardingTextButton
+import com.artforyou.difa.presentation.screen.onboarding.viewmodel.OnboardingViewModel
 import kotlinx.coroutines.delay
 
 @Composable
 fun GetStartedScreen(
     moveToHome: () -> Unit,
+    viewModel: OnboardingViewModel = hiltViewModel(),
     modifier: Modifier = Modifier,
 ){
     Scaffold(
@@ -50,6 +53,7 @@ fun GetStartedScreen(
     ) { paddingValues ->
         GetStartedContent(
             moveToHome = moveToHome,
+            viewModel = viewModel,
             modifier = modifier.padding(paddingValues)
         )
     }
@@ -58,6 +62,7 @@ fun GetStartedScreen(
 @Composable
 fun GetStartedContent(
     moveToHome: () -> Unit,
+    viewModel: OnboardingViewModel,
     modifier: Modifier = Modifier
 ){
 
@@ -111,7 +116,10 @@ fun GetStartedContent(
                     )
                 ) + fadeIn(animationSpec = tween(300))
             ) {
-                OnBoardingTextButton(title = stringResource(R.string.get_started), moveTo = moveToHome)
+                OnBoardingTextButton(title = stringResource(R.string.get_started), moveTo = {
+                    viewModel.setFirstInstallDone()
+                    moveToHome()
+                })
             }
         }
     }
@@ -120,7 +128,7 @@ fun GetStartedContent(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun GetStartedScreenPrev() {
-    GetStartedContent(
+    GetStartedScreen(
         moveToHome = {}
     )
 }

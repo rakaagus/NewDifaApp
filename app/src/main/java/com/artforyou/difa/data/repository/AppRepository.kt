@@ -3,6 +3,7 @@ package com.artforyou.difa.data.repository
 import com.artforyou.difa.data.NetworkBoundResource
 import com.artforyou.difa.data.Resource
 import com.artforyou.difa.data.local.LocalDataSource
+import com.artforyou.difa.data.local.shered.AppPreferences
 import com.artforyou.difa.data.remote.RemoteDataSource
 import com.artforyou.difa.data.remote.network.ApiResponse
 import com.artforyou.difa.data.remote.response.base.ArticleItemData
@@ -25,6 +26,7 @@ import javax.inject.Singleton
 class AppRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
+    private val appPreferences: AppPreferences,
     private val appExecutor: AppExecutors,
 ) : IAppRepository{
     override fun getListArticle(): Flow<Resource<List<ArticleModel>>> =
@@ -115,4 +117,8 @@ class AppRepository @Inject constructor(
         val recommendation = RecommendationMapper.recommendationModelToEntitiesMapper(recommendationModel)
         appExecutor.diskIO().execute { localDataSource.getDeleteRecommendation(recommendation) }
     }
+
+    override suspend fun setUpUser(boolean: Boolean) = appPreferences.setFirstInstall(boolean)
+
+    override suspend fun isFirstInstall(): Boolean = appPreferences.isFirstInstall()
 }

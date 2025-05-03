@@ -1,7 +1,6 @@
 package com.artforyou.difa.presentation.screen.home
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.artforyou.difa.data.Resource
 import com.artforyou.difa.domain.model.ArticleModel

@@ -31,4 +31,8 @@ constructor(
 
     override fun deleteDataRecommendation(recommendationModel: RecommendationModel) = appRepository.deleteDataRecommendation(recommendationModel)
 
+    override suspend fun setUpUser(boolean: Boolean) = appRepository.setUpUser(boolean)
+
+    override suspend fun isFirstInstall(): Boolean = appRepository.isFirstInstall()
+
 }

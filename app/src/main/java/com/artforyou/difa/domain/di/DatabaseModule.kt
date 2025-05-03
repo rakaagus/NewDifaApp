@@ -6,6 +6,7 @@ import com.artforyou.difa.data.local.room.AppDatabase
 import com.artforyou.difa.data.local.room.ArticleDao
 import com.artforyou.difa.data.local.room.QuotesDao
 import com.artforyou.difa.data.local.room.RecommendationDao
+import com.artforyou.difa.data.local.shered.AppPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class DatabaseModule {
 
+    @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase = Room.databaseBuilder(
         context,
@@ -31,4 +33,8 @@ class DatabaseModule {
 
     @Provides
     fun provideQuoteDao(database: AppDatabase): QuotesDao = database.quotesDao()
+
+    @Provides
+    fun provideAppPreferences(@ApplicationContext context: Context): AppPreferences =
+        AppPreferences(context)
 }

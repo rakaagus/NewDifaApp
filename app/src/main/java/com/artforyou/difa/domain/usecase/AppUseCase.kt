@@ -23,4 +23,7 @@ interface AppUseCase {
     fun deleteDataArticle(articleModel: ArticleModel)
     fun deleteDataQuote(quoteModel: QuoteModel)
     fun deleteDataRecommendation(recommendationModel: RecommendationModel)
+
+    suspend fun setUpUser(boolean: Boolean)
+    suspend fun isFirstInstall(): Boolean
 }
