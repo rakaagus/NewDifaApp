@@ -36,10 +36,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.data.Resource
+import com.artforyou.difa.presentation.screen.home.component.ArticleShimmer
 import com.artforyou.difa.presentation.screen.home.component.EmptyQuotesPager
 import com.artforyou.difa.presentation.screen.home.component.HomeAppbar
 import com.artforyou.difa.presentation.screen.home.component.LeftImageCard
+import com.artforyou.difa.presentation.screen.home.component.QuoteShimmer
 import com.artforyou.difa.presentation.screen.home.component.QuotesPager
+import com.artforyou.difa.presentation.screen.home.component.RecommendationShimmer
 import com.artforyou.difa.presentation.screen.home.component.RecommendationSibiCard
 import com.artforyou.difa.presentation.screen.home.component.RightImageCard
 import com.artforyou.difa.presentation.screen.home.component.VerticalArticleCard
@@ -105,7 +108,7 @@ fun HomeScreenContent(
                     EmptyQuotesPager()
                 }
                 is Resource.Loading -> {
-
+                    QuoteShimmer()
                 }
                 is Resource.Success -> {
                     QuotesPager(quotes = result.data ?: emptyList())
@@ -142,16 +145,14 @@ fun HomeScreenContent(
                     ) {
                         when(val result = recommendationState.value){
                             is Resource.Error -> {
-                                items(1) {
-                                    RecommendationSibiCard(
-                                        title = "Recomendation Sibi",
-                                        description = "Description Sibi",
-                                        image = R.drawable.ic_launcher_background
-                                    ){}
+                                items(3) {
+                                    RecommendationSibiCard()
                                 }
                             }
                             is Resource.Loading -> {
-
+                                items(3) {
+                                    RecommendationShimmer()
+                                }
                             }
                             is Resource.Success -> {
                                 result.data?.size?.let {
@@ -183,15 +184,13 @@ fun HomeScreenContent(
                         when(val result = articleState.value){
                             is Resource.Error -> {
                                 items(4) {
-                                    VerticalArticleCard(
-                                        title = "Article 1",
-                                        description = "Descripsi Article",
-                                        image = R.drawable.ic_launcher_background
-                                    ) { }
+                                    VerticalArticleCard()
                                 }
                             }
                             is Resource.Loading -> {
-
+                                items(4) {
+                                    ArticleShimmer()
+                                }
                             }
                             is Resource.Success -> {
                                 result.data?.size?.let {
