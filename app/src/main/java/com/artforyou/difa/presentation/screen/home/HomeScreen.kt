@@ -51,6 +51,8 @@ import com.artforyou.difa.ui.theme.GreenLight
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    moveToDetection: () -> Unit,
+    moveToArticle: () -> Unit,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     SetStatusBarColor(color = GreenLight)
@@ -62,6 +64,8 @@ fun HomeScreen(
         }
     ) { paddingValues ->
         HomeScreenContent(
+            moveToArticle = moveToArticle,
+            moveToDetection = moveToDetection,
             homeViewModel = homeViewModel,
             modifier = Modifier.padding(paddingValues)
         )
@@ -71,6 +75,8 @@ fun HomeScreen(
 @Composable
 fun HomeScreenContent(
     homeViewModel: HomeViewModel,
+    moveToArticle: () -> Unit,
+    moveToDetection: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
@@ -269,5 +275,8 @@ fun HomeTextFormatWithClickText(
 @Preview
 @Composable
 private fun HomeScreenPrev() {
-    HomeScreen()
+    HomeScreen(
+        moveToDetection = {},
+        moveToArticle = {}
+    )
 }
