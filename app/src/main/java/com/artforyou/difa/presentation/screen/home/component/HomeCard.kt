@@ -196,6 +196,58 @@ fun RecommendationSibiCard(
 }
 
 @Composable
+fun RecommendationSibiCard(
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        colors = CardDefaults.cardColors(containerColor = PurpleLight),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
+        shape = MaterialTheme.shapes.small,
+        modifier = modifier
+            .fillMaxWidth()
+    ) {
+        Row (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_launcher_background),
+                contentDescription = null,
+                modifier = Modifier
+                    .clip(MaterialTheme.shapes.extraSmall)
+                    .size(width = 90.dp, height = 70.dp),
+            )
+            Column(
+                verticalArrangement = Arrangement.spacedBy(5.dp),
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = "Recomendation Sibi",
+                    style = MaterialTheme.typography.labelSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ),
+                    color = Color.Black,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Text(
+                    text = "Description Sibi",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color.Black,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+            Icon(
+                imageVector = Icons.Default.ArrowRight,
+                tint = Color.Black,
+                contentDescription = ""
+            )
+        }
+    }
+}
+
+@Composable
 fun VerticalArticleCard(
     modifier: Modifier = Modifier,
     title: String,
@@ -231,6 +283,47 @@ fun VerticalArticleCard(
             )
             Text(
                 text = description,
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.Black,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth().height(100.dp).padding(horizontal = 10.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun VerticalArticleCard(
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        colors = CardDefaults.cardColors(containerColor = blueLight),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
+        shape = MaterialTheme.shapes.small,
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable {  }
+    ) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_launcher_background),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.fillMaxWidth().height(140.dp).clip(
+                    RoundedCornerShape(topEnd = 10.dp, topStart = 10.dp, bottomStart = 0.dp, bottomEnd = 0.dp)
+                )
+            )
+            Text(
+                text = "Article 1",
+                style = MaterialTheme.typography.labelLarge,
+                color = Color.Black,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp)
+            )
+            Text(
+                text = "Descripsi Article",
                 style = MaterialTheme.typography.labelSmall,
                 color = Color.Black,
                 overflow = TextOverflow.Ellipsis,

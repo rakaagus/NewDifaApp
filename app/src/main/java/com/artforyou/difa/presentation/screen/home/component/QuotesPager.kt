@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
+import com.artforyou.difa.domain.model.QuoteModel
 import com.artforyou.difa.ui.theme.YellowLight
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -25,7 +26,48 @@ import com.google.accompanist.pager.rememberPagerState
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun QuotesPager(modifier: Modifier = Modifier) {
+fun QuotesPager(
+    quotes: List<QuoteModel>,
+    modifier: Modifier = Modifier
+) {
+
+    val listQuotes = quotes.take(5)
+
+    val pagerState = rememberPagerState(initialPage = 0)
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        HorizontalPager(
+            count = listQuotes.size,
+            state = pagerState,
+            itemSpacing = 10.dp
+        ) { pager ->
+            Card(
+                shape = RoundedCornerShape(10.dp),
+                elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
+                colors = CardDefaults.cardColors(containerColor = YellowLight),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                Text(
+                    text = listQuotes[pager].text,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color.Black,
+                    modifier = Modifier.padding(10.dp).fillMaxSize()
+                )
+            }
+        }
+        QuotesPagerIndicator(pagerState = pagerState)
+    }
+}
+
+@OptIn(ExperimentalPagerApi::class)
+@Composable
+fun EmptyQuotesPager(
+    modifier: Modifier = Modifier
+) {
 
     val listQuotes = listOf(
         R.string.text_quotes,

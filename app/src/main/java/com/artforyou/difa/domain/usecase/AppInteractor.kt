@@ -21,12 +21,6 @@ constructor(
 
     override fun getListRecommendation(): Flow<Resource<List<RecommendationModel>>> = appRepository.getListRecommendation()
 
-    override fun insertDataArticle(articles: List<ArticleEntity>) = appRepository.insertDataArticle(articles)
-
-    override fun insertDataQuote(quotes: List<QuotesEntity>) = appRepository.insertDataQuote(quotes)
-
-    override fun insertDataRecommendation(recommendations: List<RecommendationEntity>) = appRepository.insertDataRecommendation(recommendations)
-
     override fun getArticleById(articleId: Int): Flow<ArticleModel> = appRepository.getArticleById(articleId)
 
     override fun getRecommendationById(recommendationId: Int): Flow<RecommendationModel> = appRepository.getRecommendationById(recommendationId)
@@ -36,5 +30,9 @@ constructor(
     override fun deleteDataQuote(quoteModel: QuoteModel) = appRepository.deleteDataQuote(quoteModel)
 
     override fun deleteDataRecommendation(recommendationModel: RecommendationModel) = appRepository.deleteDataRecommendation(recommendationModel)
+
+    override suspend fun setUpUser(boolean: Boolean) = appRepository.setUpUser(boolean)
+
+    override suspend fun isFirstInstall(): Boolean = appRepository.isFirstInstall()
 
 }

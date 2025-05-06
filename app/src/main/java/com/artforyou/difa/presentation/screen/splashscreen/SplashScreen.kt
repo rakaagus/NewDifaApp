@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,23 +25,35 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
 import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
     moveToOnboarding: () -> Unit,
+    moveToHome: () -> Unit,
+    viewModel: SplashScreenViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ) {
     var splash by remember {
         mutableStateOf(false)
     }
 
-    LaunchedEffect(true) {
-        delay(500)
-        splash = true
-        delay(1000)
-        moveToOnboarding()
+    val isFirstInstall by viewModel.isFirst.collectAsState()
+
+    LaunchedEffect(isFirstInstall) {
+        if (isFirstInstall != null) {
+            delay(500)
+            splash = true
+            delay(1000)
+
+            if (isFirstInstall == true) {
+                moveToOnboarding()
+            } else {
+                moveToHome()
+            }
+        }
     }
 
     Scaffold(
@@ -92,6 +105,7 @@ fun SplashScreenContent(
 @Composable
 fun SplashScreenPrev() {
     SplashScreen(
-        moveToOnboarding = {}
+        moveToOnboarding = { },
+        moveToHome = { }
     )
 }

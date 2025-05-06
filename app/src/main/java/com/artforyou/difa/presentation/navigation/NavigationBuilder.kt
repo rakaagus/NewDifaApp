@@ -45,6 +45,13 @@ fun NavigationBuilder(
                                 inclusive = true
                             }
                         }
+                    },
+                    moveToHome = {
+                        navController.navigate(SubGraph.SibiDetection){
+                            popUpTo(SubGraph.Splash){
+                                inclusive = true
+                            }
+                        }
                     }
                 )
             }
@@ -66,7 +73,7 @@ fun NavigationBuilder(
             composable<Dest.GetStartedScreen> {
                 GetStartedScreen(
                     moveToHome = {
-                        navController.navigate(SubGraph.SibiDetection){
+                        navController.navigate(SubGraph.Home){
                             popUpTo(SubGraph.Onboarding){
                                 inclusive = true
                             }
