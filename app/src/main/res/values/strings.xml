@@ -38,6 +38,8 @@
     <string name="text_learn_difa">Pelajari Aplikasi</string>
     <string name="text_desc_learn_difa">Ada Apa Saja sih di aplikasi ini?</string>
     <string name="text_loadMore">Lihat Semua</string>
+    <string name="text_start_header">Mulai Komunikasi</string>
+    <string name="text_start_description">Mulai Berkomunikasi dengan mereka</string>
 
     <!--Description Values For Images-->
     <string name="back_button_icon_description">Back Button</string>

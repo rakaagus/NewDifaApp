@@ -44,7 +44,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
 @Composable
 fun SibiDetectionScreen(
-    onBackPress: () -> Unit = {},
+    onBackPress: () -> Unit,
     viewModel: SibiDetectionViewModel = viewModel()
 ){
     Scaffold(
@@ -199,5 +199,7 @@ fun SimpleInformation(
 @Preview(showBackground = true)
 @Composable
 private fun SibiDetectionScreenPrev() {
-    SibiDetectionScreen()
+    SibiDetectionScreen(
+        onBackPress = {}
+    )
 }

@@ -86,14 +86,31 @@ fun NavigationBuilder(
         // navigation for home route
         navigation<SubGraph.Home>(startDestination = Dest.HomeScreen){
             composable<Dest.HomeScreen> {
-                HomeScreen()
+                HomeScreen(
+                    moveToArticle = {
+                        navController.navigate(SubGraph.Article)
+                    },
+                    moveToDetection = {
+                        navController.navigate(SubGraph.SibiDetection)
+                    },
+                    moveToPolicy = {
+                        navController.navigate(Dest.PolicyScreen)
+                    },
+                    moveToAbout = {
+                        navController.navigate(Dest.AboutScreen)
+                    }
+                )
             }
         }
 
         // navigation for sibi detection
         navigation<SubGraph.SibiDetection>(startDestination = Dest.SibiDetectionScreen) {
             composable<Dest.SibiDetectionScreen> {
-                SibiDetectionScreen()
+                SibiDetectionScreen(
+                    onBackPress = {
+                        navController.navigateUp()
+                    }
+                )
             }
         }
 

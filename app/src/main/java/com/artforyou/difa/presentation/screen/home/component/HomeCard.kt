@@ -5,10 +5,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowRight
@@ -26,6 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -330,6 +334,64 @@ fun VerticalArticleCard(
                 modifier = Modifier.fillMaxWidth().height(100.dp).padding(horizontal = 10.dp)
             )
         }
+    }
+}
+
+@Composable
+fun IconVerticalCard(
+    modifier: Modifier = Modifier,
+    color: Color,
+    title: String,
+    image: Int,
+    onClick: () -> Unit
+) {
+    Card(
+        colors = CardDefaults.cardColors(containerColor = color),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
+        shape = MaterialTheme.shapes.small,
+        modifier = modifier
+            .clickable { onClick() }
+            .width(87.dp)
+            .height(80.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(id = image),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .size(42.dp)
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = title,
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.Black,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+    }
+}
+
+
+@Preview
+@Composable
+fun IconVerticalCardPrev(){
+    IconVerticalCard(
+        title = "Bantuam",
+        color = RedLight,
+        image = R.drawable.mulai_komunikasi,
+    ){
+
     }
 }
 
