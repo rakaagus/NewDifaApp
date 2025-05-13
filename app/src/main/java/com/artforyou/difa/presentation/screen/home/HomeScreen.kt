@@ -4,7 +4,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +26,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -157,21 +155,21 @@ fun HomeScreenContent(
                 IconVerticalCard(
                     title = "Bantuan",
                     color = RedLight,
-                    image = R.drawable.tutorial_app,
+                    image = R.drawable.bantuan_img,
                 ){
 
                 }
                 IconVerticalCard(
                     title = "Kebijakan",
                     color = blueLight,
-                    image = R.drawable.tutorial_app,
+                    image = R.drawable.kebijakan_image,
                 ){
                     moveToPolicy()
                 }
                 IconVerticalCard(
                     title = "Laporkan",
                     color = blueLight,
-                    image = R.drawable.tutorial_app,
+                    image = R.drawable.laporan_img,
                 ){
 
                 }

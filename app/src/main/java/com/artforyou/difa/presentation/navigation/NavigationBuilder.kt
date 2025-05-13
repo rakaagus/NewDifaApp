@@ -47,7 +47,7 @@ fun NavigationBuilder(
                         }
                     },
                     moveToHome = {
-                        navController.navigate(SubGraph.SibiDetection){
+                        navController.navigate(SubGraph.Home){
                             popUpTo(SubGraph.Splash){
                                 inclusive = true
                             }
