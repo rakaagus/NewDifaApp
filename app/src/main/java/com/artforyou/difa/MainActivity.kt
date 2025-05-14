@@ -14,7 +14,9 @@ import androidx.compose.ui.graphics.Color
 import com.artforyou.difa.presentation.navigation.NavigationBuilder
 import com.artforyou.difa.ui.theme.NewDifaAppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

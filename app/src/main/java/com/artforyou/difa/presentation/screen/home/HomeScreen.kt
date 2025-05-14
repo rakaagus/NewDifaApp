@@ -4,7 +4,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +26,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,6 +37,7 @@ import com.artforyou.difa.data.Resource
 import com.artforyou.difa.presentation.screen.home.component.ArticleShimmer
 import com.artforyou.difa.presentation.screen.home.component.EmptyQuotesPager
 import com.artforyou.difa.presentation.screen.home.component.HomeAppbar
+import com.artforyou.difa.presentation.screen.home.component.IconVerticalCard
 import com.artforyou.difa.presentation.screen.home.component.LeftImageCard
 import com.artforyou.difa.presentation.screen.home.component.QuoteShimmer
 import com.artforyou.difa.presentation.screen.home.component.QuotesPager
@@ -47,12 +46,16 @@ import com.artforyou.difa.presentation.screen.home.component.RecommendationSibiC
 import com.artforyou.difa.presentation.screen.home.component.RightImageCard
 import com.artforyou.difa.presentation.screen.home.component.VerticalArticleCard
 import com.artforyou.difa.ui.theme.GreenLight
+import com.artforyou.difa.ui.theme.RedLight
+import com.artforyou.difa.ui.theme.blueLight
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     moveToDetection: () -> Unit,
     moveToArticle: () -> Unit,
+    moveToAbout: () -> Unit,
+    moveToPolicy: () -> Unit,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     SetStatusBarColor(color = GreenLight)
@@ -67,6 +70,8 @@ fun HomeScreen(
             moveToArticle = moveToArticle,
             moveToDetection = moveToDetection,
             homeViewModel = homeViewModel,
+            moveToAbout = moveToAbout,
+            moveToPolicy = moveToPolicy,
             modifier = Modifier.padding(paddingValues)
         )
     }
@@ -77,6 +82,8 @@ fun HomeScreenContent(
     homeViewModel: HomeViewModel,
     moveToArticle: () -> Unit,
     moveToDetection: () -> Unit,
+    moveToAbout: () -> Unit,
+    moveToPolicy: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
@@ -124,23 +131,56 @@ fun HomeScreenContent(
                 title = stringResource(R.string.text_beranda),
                 item = {
                     RightImageCard(
-                        title = stringResource(R.string.text_about),
-                        description = stringResource(R.string.title_about_1),
-                        imageRes = R.drawable.about_app
+                        title = stringResource(R.string.text_start_header),
+                        description = stringResource(R.string.text_start_description),
+                        imageRes = R.drawable.mulai_komunikasi
                     ) {
-
+                        moveToDetection()
                     }
                 },
                 item2 = {
                     LeftImageCard(
-                        title = stringResource(R.string.text_learn_difa),
-                        description = stringResource(R.string.text_desc_learn_difa),
-                        imageRes = R.drawable.tutorial_app
+                        title = stringResource(R.string.text_about),
+                        description = stringResource(R.string.title_about_1),
+                        imageRes = R.drawable.about_app
                     ) {
-
+                        moveToAbout()
                     }
                 }
             )
+            Spacer(Modifier.height(10.dp))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                IconVerticalCard(
+                    title = "Bantuan",
+                    color = RedLight,
+                    image = R.drawable.bantuan_img,
+                ){
+
+                }
+                IconVerticalCard(
+                    title = "Kebijakan",
+                    color = blueLight,
+                    image = R.drawable.kebijakan_image,
+                ){
+                    moveToPolicy()
+                }
+                IconVerticalCard(
+                    title = "Laporkan",
+                    color = blueLight,
+                    image = R.drawable.laporan_img,
+                ){
+
+                }
+                IconVerticalCard(
+                    title = "Pelajari",
+                    color = RedLight,
+                    image = R.drawable.tutorial_app,
+                ){
+
+                }
+            }
             Spacer(Modifier.height(30.dp))
             HomeSimpleTextFormat(
                 title = stringResource(R.string.text_recom_sibi),
@@ -277,6 +317,8 @@ fun HomeTextFormatWithClickText(
 private fun HomeScreenPrev() {
     HomeScreen(
         moveToDetection = {},
-        moveToArticle = {}
+        moveToArticle = {},
+        moveToAbout = {},
+        moveToPolicy = {}
     )
 }
