@@ -366,9 +366,8 @@ fun IconVerticalCard(
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
-                    .size(42.dp)
+                    .size(50.dp)
             )
-            Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelSmall,
@@ -389,7 +388,7 @@ fun IconVerticalCardPrev(){
     IconVerticalCard(
         title = "Bantuam",
         color = RedLight,
-        image = R.drawable.mulai_komunikasi,
+        image = R.drawable.kebijakan_img,
     ){
 
     }
