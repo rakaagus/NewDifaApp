@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val appUseCase: AppUseCase
+   appUseCase: AppUseCase
 ): ViewModel() {
     val quotes: StateFlow<Resource<List<QuoteModel>>> =
         appUseCase.getListQuotes()

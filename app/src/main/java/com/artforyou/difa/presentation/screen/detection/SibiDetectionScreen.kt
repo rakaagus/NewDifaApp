@@ -96,7 +96,7 @@ fun SibiDetectionContent(
             )
 
             SimpleInformation(
-                title = "Presentasi Deteksi",
+                title = "Hasil Klasifikasi",
                 value = recognition.value?.probabilityString.toString(),
                 isOrientationEnd = true,
                 modifier = Modifier

@@ -98,6 +98,12 @@ fun NavigationBuilder(
                     },
                     moveToAbout = {
                         navController.navigate(Dest.AboutScreen)
+                    },
+                    moveToReport = {
+                        navController.navigate(Dest.ReportScreen)
+                    },
+                    moveToHelp = {
+                        navController.navigate(Dest.HelpScreen)
                     }
                 )
             }
@@ -136,11 +142,27 @@ fun NavigationBuilder(
         // navigation for help screen
         navigation<SubGraph.Help>(startDestination = Dest.HelpScreen) {
             composable<Dest.HelpScreen> {
-                HelpScreen()
+                HelpScreen(
+                    onBackPressed = {
+                        navController.navigate(SubGraph.Help) {
+                            popUpTo(SubGraph.Home) {
+                                inclusive = true
+                            }
+                        }
+                    }
+                )
             }
 
             composable<Dest.ReportScreen> {
-                ReportScreen()
+                ReportScreen(
+                    onBackPressed = {
+                        navController.navigate(SubGraph.Help) {
+                            popUpTo(SubGraph.Home) {
+                                inclusive = true
+                            }
+                        }
+                    }
+                )
             }
         }
 

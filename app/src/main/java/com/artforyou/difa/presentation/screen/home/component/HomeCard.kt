@@ -1,5 +1,6 @@
 package com.artforyou.difa.presentation.screen.home.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -26,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -34,6 +36,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.artforyou.difa.R
 import com.artforyou.difa.ui.theme.PurpleLight
 import com.artforyou.difa.ui.theme.RedLight
@@ -145,10 +149,11 @@ fun LeftImageCard(
 @Composable
 fun RecommendationSibiCard(
     modifier: Modifier = Modifier,
-    image: Int,
+    imageUrl: String,
+    @DrawableRes errorImage: Int = R.drawable.error_image,
     title: String,
     description: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Card(
         colors = CardDefaults.cardColors(containerColor = PurpleLight),
@@ -164,12 +169,15 @@ fun RecommendationSibiCard(
                 .padding(horizontal = 16.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Image(
-                painter = painterResource(id = image),
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(imageUrl)
+                    .crossfade(true)
+                    .error(errorImage)
+                    .build(),
                 contentDescription = null,
-                modifier = Modifier
-                    .clip(MaterialTheme.shapes.extraSmall)
-                    .size(width = 90.dp, height = 70.dp),
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.size(width = 90.dp, height = 70.dp)
             )
             Column(
                 verticalArrangement = Arrangement.spacedBy(5.dp),
@@ -217,8 +225,9 @@ fun RecommendationSibiCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.error_image),
                 contentDescription = null,
+                contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.extraSmall)
                     .size(width = 90.dp, height = 70.dp),
@@ -256,7 +265,8 @@ fun VerticalArticleCard(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    image: Int,
+    imageUrl: String,
+    @DrawableRes errorImage: Int = R.drawable.error_image,
     onClick: () -> Unit
 ) {
     Card(
@@ -270,11 +280,15 @@ fun VerticalArticleCard(
         Column(
             verticalArrangement = Arrangement.spacedBy(5.dp),
         ) {
-            Image(
-                painter = painterResource(id = image),
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(imageUrl)
+                    .crossfade(true)
+                    .error(errorImage)
+                    .build(),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxWidth().height(140.dp).clip(
+                modifier = Modifier.fillMaxWidth().height(height = 70.dp).clip(
                     RoundedCornerShape(topEnd = 10.dp, topStart = 10.dp, bottomStart = 0.dp, bottomEnd = 0.dp)
                 )
             )
@@ -312,7 +326,7 @@ fun VerticalArticleCard(
             verticalArrangement = Arrangement.spacedBy(5.dp),
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.error_image),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.fillMaxWidth().height(140.dp).clip(
@@ -422,7 +436,7 @@ private fun LeftImageCardPrev() {
 @Composable
 private fun RecommendationSibiCardPrev() {
     RecommendationSibiCard(
-        image = R.drawable.baseline_arrow_left_24,
+        imageUrl = "",
         title = "Recomendation 1",
         description = "Recomendation 2",
     ){
@@ -434,7 +448,7 @@ private fun RecommendationSibiCardPrev() {
 @Composable
 private fun VerticalArticleCardPrev() {
     VerticalArticleCard(
-        image = R.drawable.baseline_arrow_left_24,
+        imageUrl = "",
         title = "Recomendation 1",
         description = "Recomendation 2",
     ){

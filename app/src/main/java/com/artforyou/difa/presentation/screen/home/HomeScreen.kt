@@ -56,6 +56,8 @@ fun HomeScreen(
     moveToArticle: () -> Unit,
     moveToAbout: () -> Unit,
     moveToPolicy: () -> Unit,
+    moveToHelp: () -> Unit,
+    moveToReport: () -> Unit,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     SetStatusBarColor(color = GreenLight)
@@ -72,6 +74,8 @@ fun HomeScreen(
             homeViewModel = homeViewModel,
             moveToAbout = moveToAbout,
             moveToPolicy = moveToPolicy,
+            moveToHelp = moveToHelp,
+            moveToReport = moveToReport,
             modifier = Modifier.padding(paddingValues)
         )
     }
@@ -84,6 +88,8 @@ fun HomeScreenContent(
     moveToDetection: () -> Unit,
     moveToAbout: () -> Unit,
     moveToPolicy: () -> Unit,
+    moveToHelp: () -> Unit,
+    moveToReport: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
@@ -201,13 +207,14 @@ fun HomeScreenContent(
                                 }
                             }
                             is Resource.Success -> {
-                                result.data?.size?.let {
-                                    items(it) {
-                                        RecommendationSibiCard(
-                                            title = result.data[it].title,
-                                            description = result.data[it].description,
-                                            image = R.drawable.ic_launcher_background
-                                        ){}
+                                val limitedRecommendation = result.data?.take(3) ?: emptyList()
+                                items(limitedRecommendation.size) { index ->
+                                    RecommendationSibiCard(
+                                        title = limitedRecommendation[index].title,
+                                        description = limitedRecommendation[index].description,
+                                        imageUrl = limitedRecommendation[index].urlImage
+                                    ){
+
                                     }
                                 }
                             }
@@ -239,13 +246,14 @@ fun HomeScreenContent(
                                 }
                             }
                             is Resource.Success -> {
-                                result.data?.size?.let {
-                                    items(it) {
-                                        VerticalArticleCard(
-                                            title = result.data[it].title,
-                                            description = result.data[it].description,
-                                            image = R.drawable.ic_launcher_background
-                                        ) { }
+                                val limitedArticle = result.data?.take(4) ?: emptyList()
+                                items(limitedArticle.size) { index ->
+                                    VerticalArticleCard(
+                                        title = limitedArticle[index].title,
+                                        description = limitedArticle[index].description,
+                                        imageUrl = limitedArticle[index].urlImage
+                                    ) {
+
                                     }
                                 }
                             }
@@ -319,6 +327,8 @@ private fun HomeScreenPrev() {
         moveToDetection = {},
         moveToArticle = {},
         moveToAbout = {},
-        moveToPolicy = {}
+        moveToPolicy = {},
+        moveToReport = {},
+        moveToHelp = {}
     )
 }
