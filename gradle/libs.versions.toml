@@ -15,7 +15,7 @@ junitVersion = "1.2.1"
 # Plugin
 kpsVersion = "1.9.10-1.0.13"
 googleServices = "4.4.1"
-kotlinxSerializationJson = "1.5.0"
+kotlinxSerializationJson = "1.6.3"
 
 #Self Depedencies
 navigationVersion = "2.8.0-beta05"
@@ -83,7 +83,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 
 # Self Depedencies
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref="navigationVersion" }
+androidx-navigation = { module = "androidx.navigation:navigation-compose", version.ref="navigationVersion" }
 androidx-compose-material = { group = "androidx.compose.material", name = "material-icons-extended", version.ref="materialCompose" }
 io-coil-kt = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion"}
 io-coil-gif-kt = {group = "io.coil-kt", name = "coil-gif", version.ref = "coilVersion"}
@@ -149,7 +149,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 googleKsp = { id = "com.google.devtools.ksp", version.ref = "kpsVersion" }
 dagger-hilt-android = {id="com.google.dagger.hilt.android", version.ref = "hiltAndroid"}
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerializationJson" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "1.9.0" }
 

@@ -5,6 +5,5 @@ plugins {
     alias(libs.plugins.googleKsp) apply false
     alias(libs.plugins.dagger.hilt.android) apply false
     alias(libs.plugins.googleGmsGoogleServices) apply false
-    alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.kotlinx.serialization) apply false
 }
