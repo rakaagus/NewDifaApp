@@ -2,10 +2,8 @@ package com.artforyou.difa.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import kotlinx.serialization.Serializable
 
 @Parcelize
-@Serializable
 data class ArticleModel(
     val id: Int,
     val title: String,

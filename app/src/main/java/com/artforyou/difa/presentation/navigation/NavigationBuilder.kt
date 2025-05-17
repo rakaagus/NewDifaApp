@@ -96,18 +96,8 @@ fun NavigationBuilder(
                 HomeScreen(
                     moveToArticle = { model ->
                         navController.navigate(Dest.ArticleScreen(
-                            article = ArticleModel(
-                                id = model.id,
-                                title = model.title,
-                                description = model.description,
-                                content = model.content,
-                                url = model.url,
-                                urlImage = model.urlImage,
-                                image = model.image,
-                                author = model.author,
-                                publishAt = model.publishAt,
-                                createAt = model.createAt
-                            )
+                            id = model.id,
+                            url = model.url
                         ))
                     },
                     moveToDetection = {
@@ -200,12 +190,7 @@ fun NavigationBuilder(
 
             }
 
-            composable<Dest.ArticleScreen>(
-                typeMap = mapOf(typeOf<ArticleModel>() to CustomNavType<ArticleModel>(
-                    clazz = ArticleModel::class,
-                    serializer = ArticleModel.serializer()
-                ))
-            ) {
+            composable<Dest.ArticleScreen> {
                 val article = it.toRoute<Dest.ArticleScreen>()
                 ArticleScreen(
                     article = article,

@@ -95,7 +95,7 @@ fun ArticleScreenContent(
                         isLoading.value = false
                     }
                 }
-                loadUrl(article.article.url)
+                loadUrl(article.url)
                 webViewState.value = this  // Simpan referensi WebView
             }
         },
@@ -109,18 +109,8 @@ private fun ArticleScreenPreview() {
     ArticleScreen(
         onBackPressed = {},
         article = Dest.ArticleScreen(
-            article = ArticleModel(
-                id = 1,
-                title = "Title",
-                url = "https://www.google.com",
-                author = "Author",
-                content = "Content",
-                publishAt = "PublishedAt",
-                urlImage = "UrlToImage",
-                description = "Description",
-                image = "Image",
-                createAt = "CreateAt"
-            )
+            url = "",
+            id = 0
         )
     )
 }

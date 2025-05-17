@@ -66,6 +66,7 @@ sealed class Dest {
 
     @Serializable
     data class ArticleScreen(
-        val article: ArticleModel
+        val id: Int,
+        val url: String
     ): Dest()
 }
