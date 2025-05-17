@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
+import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 import com.artforyou.difa.presentation.screen.about.component.AboutDropDown
 
@@ -20,6 +21,7 @@ fun AboutScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
+    SetStatusBarColor(color = Color.White)
     Scaffold(
         modifier = modifier.fillMaxSize(),
         containerColor = Color.White,

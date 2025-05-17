@@ -9,14 +9,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.artforyou.difa.R
+import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.ComingSoonFeatureImage
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
+import com.artforyou.difa.ui.theme.GreenLight
 
 @Composable
 fun ReportScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
+    SetStatusBarColor(color = Color.White)
     Scaffold(
         modifier = modifier.fillMaxSize(),
         containerColor = Color.White,

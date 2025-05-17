@@ -10,17 +10,24 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.artforyou.difa.presentation.screen.home.HomeScreen
+import androidx.navigation.toRoute
+import com.artforyou.difa.domain.model.ArticleModel
 import com.artforyou.difa.presentation.screen.about.AboutScreen
 import com.artforyou.difa.presentation.screen.about.PolicyScreen
 import com.artforyou.difa.presentation.screen.article.ArticleScreen
 import com.artforyou.difa.presentation.screen.detection.SibiDetectionScreen
 import com.artforyou.difa.presentation.screen.help.HelpScreen
 import com.artforyou.difa.presentation.screen.help.ReportScreen
+import com.artforyou.difa.presentation.screen.home.HomeScreen
 import com.artforyou.difa.presentation.screen.onboarding.GetStartedScreen
 import com.artforyou.difa.presentation.screen.onboarding.OnBoardingScreen
 import com.artforyou.difa.presentation.screen.recommendation.RecommendationScreen
 import com.artforyou.difa.presentation.screen.splashscreen.SplashScreen
+import com.artforyou.difa.utils.extension.CustomNavType
+import kotlin.Int
+import kotlin.String
+import kotlin.reflect.typeOf
+
 
 @Composable
 fun NavigationBuilder(
@@ -87,11 +94,24 @@ fun NavigationBuilder(
         navigation<SubGraph.Home>(startDestination = Dest.HomeScreen){
             composable<Dest.HomeScreen> {
                 HomeScreen(
-                    moveToArticle = {
-                        navController.navigate(SubGraph.Article)
+                    moveToArticle = { model ->
+                        navController.navigate(Dest.ArticleScreen(
+                            article = ArticleModel(
+                                id = model.id,
+                                title = model.title,
+                                description = model.description,
+                                content = model.content,
+                                url = model.url,
+                                urlImage = model.urlImage,
+                                image = model.image,
+                                author = model.author,
+                                publishAt = model.publishAt,
+                                createAt = model.createAt
+                            )
+                        ))
                     },
                     moveToDetection = {
-                        navController.navigate(SubGraph.SibiDetection)
+                        navController.navigate(Dest.SibiDetectionScreen)
                     },
                     moveToPolicy = {
                         navController.navigate(Dest.PolicyScreen)
@@ -144,8 +164,8 @@ fun NavigationBuilder(
             composable<Dest.HelpScreen> {
                 HelpScreen(
                     onBackPressed = {
-                        navController.navigate(SubGraph.Help) {
-                            popUpTo(SubGraph.Home) {
+                        navController.navigate(SubGraph.Home) {
+                            popUpTo(SubGraph.Help) {
                                 inclusive = true
                             }
                         }
@@ -156,8 +176,8 @@ fun NavigationBuilder(
             composable<Dest.ReportScreen> {
                 ReportScreen(
                     onBackPressed = {
-                        navController.navigate(SubGraph.Help) {
-                            popUpTo(SubGraph.Home) {
+                        navController.navigate(SubGraph.Home) {
+                            popUpTo(SubGraph.Help) {
                                 inclusive = true
                             }
                         }
@@ -174,9 +194,21 @@ fun NavigationBuilder(
         }
 
         // navigation for article
-        navigation<SubGraph.Article>(startDestination = Dest.ArticleScreen) {
-            composable<Dest.ArticleScreen> {
+        navigation<SubGraph.Article>(startDestination = Dest.ArticleListScreen) {
+
+            composable<Dest.ArticleListScreen> {
+
+            }
+
+            composable<Dest.ArticleScreen>(
+                typeMap = mapOf(typeOf<ArticleModel>() to CustomNavType<ArticleModel>(
+                    clazz = ArticleModel::class,
+                    serializer = ArticleModel.serializer()
+                ))
+            ) {
+                val article = it.toRoute<Dest.ArticleScreen>()
                 ArticleScreen(
+                    article = article,
                     onBackPressed = {
                         navController.navigateUp()
                     }

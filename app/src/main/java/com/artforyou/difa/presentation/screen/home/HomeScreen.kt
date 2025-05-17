@@ -26,6 +26,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,6 +35,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.data.Resource
+import com.artforyou.difa.domain.model.ArticleModel
 import com.artforyou.difa.presentation.screen.home.component.ArticleShimmer
 import com.artforyou.difa.presentation.screen.home.component.EmptyQuotesPager
 import com.artforyou.difa.presentation.screen.home.component.HomeAppbar
@@ -48,12 +50,13 @@ import com.artforyou.difa.presentation.screen.home.component.VerticalArticleCard
 import com.artforyou.difa.ui.theme.GreenLight
 import com.artforyou.difa.ui.theme.RedLight
 import com.artforyou.difa.ui.theme.blueLight
+import com.artforyou.difa.utils.extension.Route.openYoutubeUrl
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     moveToDetection: () -> Unit,
-    moveToArticle: () -> Unit,
+    moveToArticle: (ArticleModel) -> Unit,
     moveToAbout: () -> Unit,
     moveToPolicy: () -> Unit,
     moveToHelp: () -> Unit,
@@ -84,7 +87,7 @@ fun HomeScreen(
 @Composable
 fun HomeScreenContent(
     homeViewModel: HomeViewModel,
-    moveToArticle: () -> Unit,
+    moveToArticle: (ArticleModel) -> Unit,
     moveToDetection: () -> Unit,
     moveToAbout: () -> Unit,
     moveToPolicy: () -> Unit,
@@ -96,6 +99,7 @@ fun HomeScreenContent(
     val quotesState = homeViewModel.quotes.collectAsState()
     val articleState = homeViewModel.articles.collectAsState()
     val recommendationState = homeViewModel.recommendations.collectAsState()
+    val context = LocalContext.current
 
     Box(
         modifier = modifier
@@ -163,7 +167,7 @@ fun HomeScreenContent(
                     color = RedLight,
                     image = R.drawable.bantuan_img,
                 ){
-
+                    moveToHelp()
                 }
                 IconVerticalCard(
                     title = "Kebijakan",
@@ -177,7 +181,7 @@ fun HomeScreenContent(
                     color = blueLight,
                     image = R.drawable.laporan_img,
                 ){
-
+                    moveToReport()
                 }
                 IconVerticalCard(
                     title = "Pelajari",
@@ -214,7 +218,8 @@ fun HomeScreenContent(
                                         description = limitedRecommendation[index].description,
                                         imageUrl = limitedRecommendation[index].urlImage
                                     ){
-
+                                        val link = limitedRecommendation[index].link
+                                        openYoutubeUrl(context, link)
                                     }
                                 }
                             }
@@ -253,7 +258,9 @@ fun HomeScreenContent(
                                         description = limitedArticle[index].description,
                                         imageUrl = limitedArticle[index].urlImage
                                     ) {
-
+                                        moveToArticle(
+                                            limitedArticle[index]
+                                        )
                                     }
                                 }
                             }
