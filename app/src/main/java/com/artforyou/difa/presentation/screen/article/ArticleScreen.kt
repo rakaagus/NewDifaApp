@@ -23,13 +23,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import com.artforyou.difa.R
+import com.artforyou.difa.domain.model.ArticleModel
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
+import com.artforyou.difa.presentation.navigation.Dest
 import com.artforyou.difa.ui.theme.activeTextBlue
 
 @Composable
 fun ArticleScreen(
     onBackPressed: () -> Unit,
-    url: String = "",
+    article: Dest.ArticleScreen,
     modifier: Modifier = Modifier
 ){
 
@@ -64,8 +66,8 @@ fun ArticleScreen(
     ) { paddingValues ->
         ArticleScreenContent(
             modifier = Modifier.padding(paddingValues),
-            url = url,
             isLoading = isLoading,
+            article = article,
             webViewState = webViewState
         )
     }
@@ -74,7 +76,7 @@ fun ArticleScreen(
 @Composable
 fun ArticleScreenContent(
     modifier: Modifier = Modifier,
-    url: String,
+    article: Dest.ArticleScreen,
     isLoading: MutableState<Boolean>,
     webViewState: MutableState<WebView?>
 ) {
@@ -93,7 +95,7 @@ fun ArticleScreenContent(
                         isLoading.value = false
                     }
                 }
-                loadUrl(url)
+                loadUrl(article.url)
                 webViewState.value = this  // Simpan referensi WebView
             }
         },
@@ -106,6 +108,9 @@ fun ArticleScreenContent(
 private fun ArticleScreenPreview() {
     ArticleScreen(
         onBackPressed = {},
-        url = "https://www.halodoc.com/artikel/wajib-tahu-ini-perbedaan-tunarungu-dan-tuli?srsltid=AfmBOorFJxhj4h5loijOEM7eQP6A2R4krvz3qsXyy7xAFNQUPJ8e9m8R"
+        article = Dest.ArticleScreen(
+            url = "",
+            id = 0
+        )
     )
 }

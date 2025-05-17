@@ -41,6 +41,9 @@
     <string name="text_start_header">Mulai Komunikasi</string>
     <string name="text_start_description">Mulai Berkomunikasi dengan mereka</string>
 
+    <string name="coming_soon_text">Fitur sedang dalam tahap pengembangan!</string>
+    <string name="coming_soon_desc">Fitur ini sedang dalam pengembangan oleh developer, harap nantikan update terbaru</string>
+
     <!--Description Values For Images-->
     <string name="back_button_icon_description">Back Button</string>
     <string name="logo_description">Logo</string>
@@ -58,4 +61,6 @@
     <string name="text_article">Artikel</string>
     <string name="text_home">Home</string>
     <string name="text_recom_sibi">Recomendasi Belajar Sibi</string>
+    <string name="text_help_screen">Bantuan</string>
+    <string name="text_report_screen">Bantuan</string>
 </resources>

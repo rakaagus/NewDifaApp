@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
+import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 
 @Composable
@@ -25,6 +26,7 @@ fun PolicyScreen(
     modifier: Modifier = Modifier,
     onBackPressed: () -> Unit
 ){
+    SetStatusBarColor(color = Color.White)
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = Color.White,

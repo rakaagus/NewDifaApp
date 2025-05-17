@@ -1,5 +1,6 @@
 package com.artforyou.difa.presentation.navigation
 
+import com.artforyou.difa.domain.model.ArticleModel
 import kotlinx.serialization.Serializable
 
 sealed class SubGraph{
@@ -61,5 +62,11 @@ sealed class Dest {
     data object RecommendationScreen: Dest()
 
     @Serializable
-    data object ArticleScreen: Dest()
+    data object ArticleListScreen: Dest()
+
+    @Serializable
+    data class ArticleScreen(
+        val id: Int,
+        val url: String
+    ): Dest()
 }
