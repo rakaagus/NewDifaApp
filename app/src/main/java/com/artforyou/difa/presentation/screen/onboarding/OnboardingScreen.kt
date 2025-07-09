@@ -30,6 +30,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
 import com.artforyou.difa.presentation.screen.onboarding.component.OnBoardingTextButton
+import com.artforyou.difa.ui.theme.Gray300
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
 import com.artforyou.difa.utils.enum.OnboardingPage
@@ -158,7 +160,7 @@ fun PagerIndicator(
                 modifier = Modifier
                     .padding(horizontal = 5.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(if (index == activeIndex) activeTextBlue else blueLight)
+                    .background(if (index == activeIndex) PurpleMainColor else Gray300)
                     .size(width = 10.dp, height = 10.dp)
             )
         }

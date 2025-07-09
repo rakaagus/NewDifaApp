@@ -9,9 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
 
@@ -22,7 +24,7 @@ fun OnBoardingTextButton(
     moveTo: () -> Unit
 ) {
     TextButton(
-        colors = ButtonDefaults.buttonColors(containerColor = blueLight),
+        colors = ButtonDefaults.buttonColors(containerColor = PurpleMainColor),
         shape = MaterialTheme.shapes.small,
         elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
         modifier = modifier
@@ -37,7 +39,7 @@ fun OnBoardingTextButton(
             style = MaterialTheme.typography.labelMedium.copy(
                 fontWeight = FontWeight.Bold
             ),
-            color = activeTextBlue,
+            color = Color.White,
             textAlign = TextAlign.Start,
         )
     }

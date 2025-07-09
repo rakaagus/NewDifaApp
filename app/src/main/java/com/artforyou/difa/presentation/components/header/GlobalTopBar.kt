@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
 
@@ -31,12 +32,12 @@ fun GlobalTopBar(
     actionIcon: (@Composable () -> Unit)? = null,
 ) {
     CenterAlignedTopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PurpleMainColor),
         title = {
             Text(
                 text = pageTitle,
-                color = Color.Black,
-                style = MaterialTheme.typography.bodySmall.copy(
+                color = Color.White,
+                style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.Bold
                 )
             )
@@ -44,17 +45,16 @@ fun GlobalTopBar(
         navigationIcon = {
             IconButton(
                 onClick = onBackPressed,
-                colors = IconButtonDefaults.iconButtonColors(containerColor = blueLight),
                 enabled = true,
                 modifier = Modifier
                     .padding(start = 16.dp)
-                    .size(30.dp)
+                    .size(40.dp)
             ) {
                 Icon(
                     painter = painterResource(R.drawable.baseline_arrow_left_24),
-                    tint = activeTextBlue,
+                    tint = Color.White,
                     contentDescription = stringResource(R.string.back_button_icon_description),
-                    modifier = Modifier.size(25.dp)
+                    modifier = Modifier.size(40.dp)
                 )
             }
         },
