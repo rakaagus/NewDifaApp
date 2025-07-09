@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.artforyou.difa.ui.theme.Gray300
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -32,7 +34,7 @@ fun QuotesPagerIndicator(
                 modifier = Modifier
                     .padding(horizontal = 5.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(if (index == activeIndex) activeTextBlue else blueLight)
+                    .background(if (index == activeIndex) PurpleMainColor else Gray300)
                     .size(width = 10.dp, height = 10.dp)
             )
         }

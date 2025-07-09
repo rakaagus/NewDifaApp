@@ -2,6 +2,7 @@ package com.artforyou.difa.presentation.screen.home.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,8 +17,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.ArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -35,16 +34,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.artforyou.difa.R
+import com.artforyou.difa.ui.theme.Gray200
 import com.artforyou.difa.ui.theme.PurpleLight
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.RedLight
-import com.artforyou.difa.ui.theme.activeTextBlue
 import com.artforyou.difa.ui.theme.blueLight
 
 @Composable
@@ -56,7 +55,7 @@ fun RightImageCard(
     onClick: () -> Unit,
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = PurpleLight),
+        colors = CardDefaults.cardColors(containerColor = PurpleMainColor),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
         shape = MaterialTheme.shapes.small,
         modifier = modifier
@@ -78,13 +77,13 @@ fun RightImageCard(
                     style = MaterialTheme.typography.bodySmall.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.Black,
+                    color = Color.White,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(
                     text = description,
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = Color.White,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
@@ -107,7 +106,7 @@ fun LeftImageCard(
     onClick: () -> Unit,
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = RedLight),
+        colors = CardDefaults.cardColors(containerColor = PurpleMainColor),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
         shape = MaterialTheme.shapes.small,
         modifier = modifier
@@ -136,13 +135,13 @@ fun LeftImageCard(
                     style = MaterialTheme.typography.bodySmall.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.Black,
+                    color = Color.White,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(
                     text = description,
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = Color.White,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
@@ -163,9 +162,9 @@ fun RecommendationSibiCard(
         modifier = modifier
             .fillMaxWidth()
             .height(90.dp)
+            .border(2.dp, Gray200, MaterialTheme.shapes.small)
             .clickable { onClick() },
-        shape = MaterialTheme.shapes.small,
-        colors = CardDefaults.cardColors(containerColor = PurpleLight),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(0.dp)
     ) {
         Row(
@@ -229,9 +228,9 @@ fun RecommendationSibiCard(
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(90.dp),
-        shape = MaterialTheme.shapes.small,
-        colors = CardDefaults.cardColors(containerColor = PurpleLight),
+            .height(90.dp)
+            .border(2.dp, Gray200, MaterialTheme.shapes.small),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(0.dp)
     ) {
         Row(
@@ -295,10 +294,10 @@ fun VerticalArticleCard(
     Card(
         modifier = modifier
             .width(200.dp)
+            .border(2.dp, Gray200, MaterialTheme.shapes.small)
             .wrapContentHeight()
             .clickable { onClick() },
-        shape = MaterialTheme.shapes.small,
-        colors = CardDefaults.cardColors(containerColor = blueLight),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(0.dp)
     ) {
         Column(
@@ -397,9 +396,8 @@ fun IconVerticalCard(
     onClick: () -> Unit
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = color),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
-        shape = MaterialTheme.shapes.small,
         modifier = modifier
             .clickable { onClick() }
             .width(87.dp)
