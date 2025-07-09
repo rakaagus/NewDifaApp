@@ -2,6 +2,7 @@ package com.artforyou.difa.presentation.screen.about.component
 
 import android.R
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.artforyou.difa.ui.theme.Gray200
 import com.artforyou.difa.ui.theme.blueLight
 
 @Composable
@@ -36,12 +38,12 @@ fun AboutDropDown(
 ) {
    var isExpanded by remember { mutableStateOf(false) }
     Card(
-        colors = CardDefaults.cardColors(containerColor = blueLight),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-        shape = MaterialTheme.shapes.small,
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
+            .border(3.dp, Gray200, shape = MaterialTheme.shapes.small)
             .clickable {
                 isExpanded = !isExpanded
             }

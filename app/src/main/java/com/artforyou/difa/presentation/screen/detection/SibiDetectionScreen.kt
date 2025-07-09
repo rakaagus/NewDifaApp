@@ -39,6 +39,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.artforyou.difa.R
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 import com.artforyou.difa.presentation.screen.detection.component.CameraDetection
+import com.artforyou.difa.ui.theme.PurpleMainColor
+import com.artforyou.difa.ui.theme.SecondaryColor
 import com.artforyou.difa.ui.theme.blueLight
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
@@ -134,13 +136,16 @@ fun SibiDetectionContent(
                         else
                             CameraSelector.DEFAULT_BACK_CAMERA
                 },
+                colors = IconButtonDefaults.iconButtonColors(
+                    containerColor = PurpleMainColor,
+                ),
                 modifier = Modifier
                     .size(80.dp)
                     .align(Alignment.Center)
             ) {
                 Icon(
                     imageVector = Icons.Default.Camera,
-                    tint = blueLight,
+                    tint = Color.White,
                     contentDescription = "Change Camera",
                     modifier = Modifier
                         .size(80.dp)
@@ -152,7 +157,7 @@ fun SibiDetectionContent(
                     camera?.cameraControl?.enableTorch(flashOn)
                 },
                 colors = IconButtonDefaults.iconButtonColors(
-                    containerColor = Color(0x51000000),
+                    containerColor = SecondaryColor,
                 ),
                 modifier = Modifier
                     .size(48.dp)
@@ -161,7 +166,7 @@ fun SibiDetectionContent(
             ) {
                 Icon(
                     imageVector = if (flashOn) Icons.Rounded.FlashOn else Icons.Rounded.FlashOff,
-                    tint = Color.White,
+                    tint = PurpleMainColor,
                     contentDescription = "Turn on The Flash"
                 )
             }

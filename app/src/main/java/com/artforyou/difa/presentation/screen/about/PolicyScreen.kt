@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
 import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
+import com.artforyou.difa.ui.theme.Gray100
 
 @Composable
 fun PolicyScreen(
@@ -29,7 +30,7 @@ fun PolicyScreen(
     SetStatusBarColor(color = Color.White)
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = Color.White,
+        containerColor = Gray100,
         topBar = {
             GlobalTopBar(
                 pageTitle = stringResource(R.string.text_policy),
