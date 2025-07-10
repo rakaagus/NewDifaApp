@@ -16,13 +16,14 @@ import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 import com.artforyou.difa.presentation.screen.about.component.AboutDropDown
 import com.artforyou.difa.ui.theme.Gray100
+import com.artforyou.difa.ui.theme.PurpleMainColor
 
 @Composable
 fun AboutScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    SetStatusBarColor(color = Color.White)
+    SetStatusBarColor(color = PurpleMainColor)
     Scaffold(
         modifier = modifier.fillMaxSize(),
         containerColor = Gray100,

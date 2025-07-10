@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.artforyou.difa.R
 import com.artforyou.difa.ui.theme.GreenLight
+import com.artforyou.difa.ui.theme.PurpleMainColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,11 +22,11 @@ fun HomeAppbar(
     pageTitle: String = stringResource(R.string.text_home)
 ) {
     CenterAlignedTopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = GreenLight),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PurpleMainColor),
         title = {
             Text(
                 text = pageTitle,
-                color = Color.Black,
+                color = Color.White,
                 style = MaterialTheme.typography.bodySmall.copy(
                     fontWeight = FontWeight.Bold
                 )

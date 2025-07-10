@@ -40,10 +40,12 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.artforyou.difa.R
+import com.artforyou.difa.ui.theme.BlackColor
 import com.artforyou.difa.ui.theme.Gray200
 import com.artforyou.difa.ui.theme.PurpleLight
 import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.RedLight
+import com.artforyou.difa.ui.theme.SecondaryColor
 import com.artforyou.difa.ui.theme.blueLight
 
 @Composable
@@ -197,14 +199,14 @@ fun RecommendationSibiCard(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     text = description,
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -213,7 +215,7 @@ fun RecommendationSibiCard(
             Icon(
                 imageVector = Icons.Default.ArrowRight,
                 contentDescription = null,
-                tint = Color.Black,
+                tint = BlackColor,
                 modifier = Modifier.size(30.dp)
             )
         }
@@ -259,14 +261,14 @@ fun RecommendationSibiCard(
                 Text(
                     text = "Recommendation",
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     text = "Description",
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -275,7 +277,7 @@ fun RecommendationSibiCard(
             Icon(
                 imageVector = Icons.Default.ArrowRight,
                 contentDescription = null,
-                tint = Color.Black,
+                tint = BlackColor,
                 modifier = Modifier.size(30.dp)
             )
         }
@@ -323,14 +325,14 @@ fun VerticalArticleCard(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     text = description,
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -371,14 +373,14 @@ fun VerticalArticleCard(
                 Text(
                     text = "Article",
                     style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     text = "Deskripsi Article",
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Black,
+                    color = BlackColor,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -390,13 +392,12 @@ fun VerticalArticleCard(
 @Composable
 fun IconVerticalCard(
     modifier: Modifier = Modifier,
-    color: Color,
     title: String,
     image: Int,
     onClick: () -> Unit
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = SecondaryColor),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
         modifier = modifier
             .clickable { onClick() }
@@ -420,7 +421,7 @@ fun IconVerticalCard(
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelSmall,
-                color = Color.Black,
+                color = BlackColor,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
@@ -436,7 +437,6 @@ fun IconVerticalCard(
 fun IconVerticalCardPrev(){
     IconVerticalCard(
         title = "Bantuam",
-        color = RedLight,
         image = R.drawable.kebijakan_img,
     ){
 
