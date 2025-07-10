@@ -1,7 +1,7 @@
 package com.artforyou.difa.presentation.screen.home.component
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,7 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.artforyou.difa.R
 import com.artforyou.difa.domain.model.QuoteModel
-import com.artforyou.difa.ui.theme.YellowLight
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -46,10 +46,11 @@ fun QuotesPager(
             Card(
                 shape = RoundedCornerShape(10.dp),
                 elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
-                colors = CardDefaults.cardColors(containerColor = YellowLight),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
+                    .border(3.dp, PurpleMainColor, shape = RoundedCornerShape(10.dp))
             ) {
                 Text(
                     text = listQuotes[pager].text,
@@ -88,10 +89,11 @@ fun EmptyQuotesPager(
             Card(
                 shape = RoundedCornerShape(10.dp),
                 elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
-                colors = CardDefaults.cardColors(containerColor = YellowLight),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
+                    .border(3.dp, PurpleMainColor, shape = RoundedCornerShape(10.dp))
             ) {
                 Text(
                     text = stringResource(listQuotes[pager]),

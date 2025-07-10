@@ -23,10 +23,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import com.artforyou.difa.R
-import com.artforyou.difa.domain.model.ArticleModel
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
 import com.artforyou.difa.presentation.navigation.Dest
-import com.artforyou.difa.ui.theme.activeTextBlue
+import com.artforyou.difa.ui.theme.PurpleMainColor
 
 @Composable
 fun ArticleScreen(
@@ -51,14 +50,14 @@ fun ArticleScreen(
                         Icon(
                             imageVector = Icons.Default.Refresh,
                             contentDescription = stringResource(R.string.img_reload),
-                            tint = activeTextBlue
+                            tint = Color.White
                         )
                     }
                 }
                 if(isLoading.value){
                     LinearProgressIndicator(
                         modifier = Modifier.fillMaxWidth(),
-                        color = activeTextBlue
+                        color = PurpleMainColor
                     )
                 }
             }

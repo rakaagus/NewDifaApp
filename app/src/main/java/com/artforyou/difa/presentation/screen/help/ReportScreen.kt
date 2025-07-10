@@ -12,14 +12,14 @@ import com.artforyou.difa.R
 import com.artforyou.difa.SetStatusBarColor
 import com.artforyou.difa.presentation.components.header.ComingSoonFeatureImage
 import com.artforyou.difa.presentation.components.header.GlobalTopBar
-import com.artforyou.difa.ui.theme.GreenLight
+import com.artforyou.difa.ui.theme.PurpleMainColor
 
 @Composable
 fun ReportScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    SetStatusBarColor(color = Color.White)
+    SetStatusBarColor(color = PurpleMainColor)
     Scaffold(
         modifier = modifier.fillMaxSize(),
         containerColor = Color.White,

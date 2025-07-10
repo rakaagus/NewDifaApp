@@ -27,6 +27,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.artforyou.difa.R
+import com.artforyou.difa.SetStatusBarColor
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import kotlinx.coroutines.delay
 
 @Composable
@@ -56,9 +58,10 @@ fun SplashScreen(
         }
     }
 
+    SetStatusBarColor(color = PurpleMainColor)
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        containerColor = Color.White
+        containerColor = PurpleMainColor
     ) { paddingValues ->
         SplashScreenContent(
             state = splash,
@@ -75,10 +78,10 @@ fun SplashScreenContent(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(PurpleMainColor)
     ) {
         Image(
-            painter = painterResource(R.drawable.difa_logo_2),
+            painter = painterResource(R.drawable.icon_app),
             contentDescription = stringResource(R.string.logo_description),
             modifier = Modifier
                 .size(250.dp)
@@ -93,7 +96,7 @@ fun SplashScreenContent(
                 text = stringResource(R.string.app_version),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Color.White,
                 modifier = Modifier
                     .padding(bottom = 24.dp)
             )

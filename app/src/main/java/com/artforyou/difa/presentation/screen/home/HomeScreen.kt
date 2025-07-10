@@ -47,7 +47,9 @@ import com.artforyou.difa.presentation.screen.home.component.RecommendationShimm
 import com.artforyou.difa.presentation.screen.home.component.RecommendationSibiCard
 import com.artforyou.difa.presentation.screen.home.component.RightImageCard
 import com.artforyou.difa.presentation.screen.home.component.VerticalArticleCard
+import com.artforyou.difa.ui.theme.BlackColor
 import com.artforyou.difa.ui.theme.GreenLight
+import com.artforyou.difa.ui.theme.PurpleMainColor
 import com.artforyou.difa.ui.theme.RedLight
 import com.artforyou.difa.ui.theme.blueLight
 import com.artforyou.difa.utils.extension.Route.openYoutubeUrl
@@ -63,7 +65,7 @@ fun HomeScreen(
     moveToReport: () -> Unit,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
-    SetStatusBarColor(color = GreenLight)
+    SetStatusBarColor(color = PurpleMainColor)
     Scaffold(
         modifier = modifier.fillMaxSize(),
         containerColor = Color.White,
@@ -106,24 +108,16 @@ fun HomeScreenContent(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        Card(
-            colors = CardDefaults.cardColors(containerColor = GreenLight),
-            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 0.dp),
-            shape = RoundedCornerShape(bottomEnd = 25.dp, bottomStart = 25.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-                .align(Alignment.TopCenter)
-        ){}
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(horizontal = 16.dp)
         ) {
+            Spacer(Modifier.height(10.dp))
             Text(
                 text = stringResource(R.string.text_quotes),
                 style = MaterialTheme.typography.labelLarge,
-                color = Color.Black
+                color = BlackColor
             )
             Spacer(Modifier.height(10.dp))
             when(val result = quotesState.value){
@@ -164,28 +158,24 @@ fun HomeScreenContent(
             ) {
                 IconVerticalCard(
                     title = "Bantuan",
-                    color = RedLight,
                     image = R.drawable.bantuan_img,
                 ){
                     moveToHelp()
                 }
                 IconVerticalCard(
                     title = "Kebijakan",
-                    color = blueLight,
                     image = R.drawable.kebijakan_image,
                 ){
                     moveToPolicy()
                 }
                 IconVerticalCard(
                     title = "Laporkan",
-                    color = blueLight,
                     image = R.drawable.laporan_img,
                 ){
                     moveToReport()
                 }
                 IconVerticalCard(
                     title = "Pelajari",
-                    color = RedLight,
                     image = R.drawable.tutorial_app,
                 ){
 
@@ -286,7 +276,7 @@ fun HomeSimpleTextFormat(
         Text(
             text = title,
             style = MaterialTheme.typography.labelLarge,
-            color = Color.Black
+            color = BlackColor
         )
         item()
         item2?.let { it() }
@@ -312,14 +302,14 @@ fun HomeTextFormatWithClickText(
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelLarge,
-                color = Color.Black,
+                color = BlackColor,
                 modifier = Modifier.weight(1f)
             )
             Text(
                 text = text,
                 style = MaterialTheme.typography.labelSmall,
                 textDecoration = TextDecoration.Underline,
-                color = Color.Black,
+                color = BlackColor,
                 modifier = Modifier.clickable { onTextClick() }
             )
         }
